@@ -1,6 +1,6 @@
-#세브란스 테스트 
+# 세브란스 테스트 
 
-#세브란스 전자동의서 Proof of Concept 진행을 위한 샘플 코드
+# **html-agreement-viewer** : 세브란스 전자동의서 Proof of Concept 진행을 위한 샘플 코드
 
 1. nginx 에서 동작할 수 있도록 plain html, plain javascript 로 작성했음
 
