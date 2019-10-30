@@ -25,5 +25,19 @@
 </div>
 
 </body>
-<script type="module" src="/poc/js/poc.js"></script>
+<script type="module" src="/js/poc.js"></script>
+<script type="module">
+
+    import { create, setButtonEvent } from "./js/poc.js";
+
+    window.onload = function(e) {
+        // 화면 이벤트 생성
+        setButtonEvent();
+    };
+
+    window.onunload = function(e) {
+        console.log("UNLOAD!!!");
+    };
+
+</script>
 </html>

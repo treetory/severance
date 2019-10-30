@@ -3324,11 +3324,4 @@ let setButtonEvent = function() {
     createButton.onclick = create;
 }
 
-window.onload = function(e) {
-    // 화면 이벤트 생성
-    setButtonEvent();
-};
-
-window.onunload = function(e) {
-    console.log("UNLOAD!!!");
-};
+export { create, setButtonEvent }
