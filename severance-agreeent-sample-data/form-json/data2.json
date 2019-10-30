@@ -1,410 +1,15 @@
-import { getData } from "./test.js";
-/**/
-let data1 =
 {
-"Key": null,
-"Regions": [
+  "Key": null,
+  "Regions": [
     {
-    "Children": [],
-    "ID": "8709d1ef-2a88-43f0-8216-5bd42030e396",
-    "Name": "기본",
-    "RegionType": 1,
-    "VisualTree": {
+      "Children": [],
+      "ID": "8709d1ef-2a88-43f0-8216-5bd42030e396",
+      "Name": "기본",
+      "RegionType": 1,
+      "VisualTree": {
         "SetCd": null,
         "Items": [
-        {
-            "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
-            "LabelCd": "00000000LB000111000000000000",
-            "FrmKey": 35726,
-            "MRItemKey": null,
-            "MRAttributeKey": null,
-            "MRitCd": "",
-            "AttrCd": "",
-            "Position_X": 0.0,
-            "Position_Y": 91.8142857142857,
-            "MRItemType": "MRLabel",
-            "MRItemName": " 급여 기준에 따르면, 현행 의료보험 요양급여 기준상 보험이 인정되지 않음을 충분히 이해하고 MRI 촬영의",
-            "MrContNm": "",
-            "TextValue": null,
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
-            "LabelCd": "00000000LB000112000000000000",
-            "FrmKey": 35726,
-            "MRItemKey": null,
-            "MRAttributeKey": null,
-            "MRitCd": "",
-            "AttrCd": "",
-            "Position_X": 0.0,
-            "Position_Y": 118.0,
-            "MRItemType": "MRLabel",
-            "MRItemName": "시행을 원하며, 이에 따른 비용은 의료보험과 관계 없이 본인(또는 보호자 대표)이 전액 지불할 것을 서약합니다.",
-            "MrContNm": "",
-            "TextValue": null,
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
-            "ControlCd": "00000000SOAP0000000000420000",
-            "SoRank": 42,
-            "FrmKey": 35726,
-            "MRItemKey": null,
-            "MRAttributeKey": null,
-            "MRitCd": "",
-            "AttrCd": "",
-            "Position_X": 0.0,
-            "Position_Y": 158.814285714286,
-            "MRItemType": "MRSoapBox",
-            "MRItemName": "기타",
-            "MrContNm": "",
-            "TextValue": null,
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
-            "LabelCd": "00000000LB000083000000000000",
-            "FrmKey": 35726,
-            "MRItemKey": null,
-            "MRAttributeKey": null,
-            "MRitCd": "",
-            "AttrCd": "",
-            "Position_X": 3.0,
-            "Position_Y": 626.04,
-            "MRItemType": "MRLabel",
-            "MRItemName": "환자 작성 란",
-            "MrContNm": "",
-            "TextValue": null,
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
-            "LabelCd": "00000000LB000102000000000000",
-            "FrmKey": 35726,
-            "MRItemKey": null,
-            "MRAttributeKey": null,
-            "MRitCd": "",
-            "AttrCd": "",
-            "Position_X": 151.0,
-            "Position_Y": 890.0,
-            "MRItemType": "MRLabel",
-            "MRItemName": "(이 경우 별도의 위임계약서를 이 동의서에 첨부하여야 합니다.)",
-            "MrContNm": "",
-            "TextValue": null,
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
-            "ControlCd": "00000000SOAP0000000000220000",
-            "SoRank": 22,
-            "FrmKey": 35726,
-            "MRItemKey": null,
-            "MRAttributeKey": null,
-            "MRitCd": "",
-            "AttrCd": "",
-            "Position_X": 0.0,
-            "Position_Y": 946.0,
-            "MRItemType": "MRSoapBox",
-            "MRItemName": "환자 또는 대리인",
-            "MrContNm": "",
-            "TextValue": null,
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "48958",
-            "MRAttributeKey": "45394",
-            "MRitCd": "A0043193",
-            "AttrCd": "A0043193",
-            "Position_X": 94.0,
-            "Position_Y": 36.0,
-            "MRItemType": "MRTextBox",
-            "MRItemName": "주치의사",
-            "MrContNm": "",
-            "TextValue": "주치의명",
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "48977",
-            "MRAttributeKey": "45413",
-            "MRitCd": "A0043212",
-            "AttrCd": "A0043212",
-            "Position_X": 55.0,
-            "Position_Y": 448.0,
-            "MRItemType": "MRTextBox",
-            "MRItemName": "설명의사",
-            "MrContNm": "",
-            "TextValue": "나종두",
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "59610",
-            "MRAttributeKey": "55845",
-            "MRitCd": "A0053200",
-            "AttrCd": "A0053200",
-            "Position_X": 327.0,
-            "Position_Y": 448.0,
-            "MRItemType": "MRDateTimePicker",
-            "MRItemName": "설명일시",
-            "MrContNm": "",
-            "TextValue": "2019-06-03 11:23",
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "49312",
-            "MRAttributeKey": "45734",
-            "MRitCd": "A0043521",
-            "AttrCd": "A0043521",
-            "Position_X": 270.0,
-            "Position_Y": 476.0,
-            "MRItemType": "MRPictureBox",
-            "MRItemName": "설명의사 서명",
-            "MrContNm": "",
-            "TextValue": null,
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "64039",
-            "MRAttributeKey": "60220",
-            "MRitCd": "A0057186",
-            "AttrCd": "A0057186",
-            "Position_X": 65.0,
-            "Position_Y": 655.0,
-            "MRItemType": "MRRadioBox",
-            "MRItemName": "동의인",
-            "MrContNm": "환자",
-            "TextValue": "False",
-            "DataValue": null,
-            "Rank": "1",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "64039",
-            "MRAttributeKey": "60220",
-            "MRitCd": "A0057186",
-            "AttrCd": "A0057186",
-            "Position_X": 121.0,
-            "Position_Y": 655.0,
-            "MRItemType": "MRRadioBox",
-            "MRItemName": "동의인",
-            "MrContNm": "대리인",
-            "TextValue": "True",
-            "DataValue": null,
-            "Rank": "2",
-            "Events": [
-            "{00064039_00060220_0002} == true -> {00058459_00054703} = \" \"",
-            "{00064039_00060220_0002} == true -> {00058459_00054703}[ IsRequired ] = TRUE",
-            "{00064039_00060220_0002} == true -> {00058381_00054626}[ IsRequired ] = TRUE",
-            "{00064039_00060220_0002} == true -> {00061577_00057752_0001}[ IsRequired ] = TRUE",
-            "{00064039_00060220_0002} == false -> {00058381_00054626}[ IsRequired ] = FALSE",
-            "{00064039_00060220_0002} == false -> {00061577_00057752_0001}[ IsRequired ] = FALSE"
-            ]
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "58459",
-            "MRAttributeKey": "54703",
-            "MRitCd": "A0052202",
-            "AttrCd": "A0052202",
-            "Position_X": 276.0,
-            "Position_Y": 655.0,
-            "MRItemType": "MRTextBox",
-            "MRItemName": "동의인 이름",
-            "MrContNm": "",
-            "TextValue": "김유유",
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "56968",
-            "MRAttributeKey": "53210",
-            "MRitCd": "A0050784",
-            "AttrCd": "A0050784",
-            "Position_X": 435.0,
-            "Position_Y": 655.0,
-            "MRItemType": "MRDateTimePicker",
-            "MRItemName": "날짜",
-            "MrContNm": "",
-            "TextValue": "2019-05-05 11:11",
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "58381",
-            "MRAttributeKey": "54626",
-            "MRitCd": "A0052132",
-            "AttrCd": "A0052132",
-            "Position_X": 218.0,
-            "Position_Y": 686.0,
-            "MRItemType": "MRTextBox",
-            "MRItemName": "환자와의 관계",
-            "MrContNm": "",
-            "TextValue": "부",
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "61577",
-            "MRAttributeKey": "57752",
-            "MRitCd": "A0055012",
-            "AttrCd": "A0055012",
-            "Position_X": 135.0,
-            "Position_Y": 771.0,
-            "MRItemType": "MRCheckBox",
-            "MRItemName": "대리인이 서명하게 된 사유",
-            "MrContNm": "미성년자로서 약정 내용에 대하여 이해하지 못함",
-            "TextValue": "True",
-            "DataValue": null,
-            "Rank": "1",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "61577",
-            "MRAttributeKey": "57752",
-            "MRitCd": "A0055012",
-            "AttrCd": "A0055012",
-            "Position_X": 135.0,
-            "Position_Y": 801.0,
-            "MRItemType": "MRCheckBox",
-            "MRItemName": "대리인이 서명하게 된 사유",
-            "MrContNm": "환자의 신체, 정신적 장애로 인하여 약정 내용에 대하여 이해하지 못함",
-            "TextValue": "True",
-            "DataValue": null,
-            "Rank": "2",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "61577",
-            "MRAttributeKey": "57752",
-            "MRitCd": "A0055012",
-            "AttrCd": "A0055012",
-            "Position_X": 135.0,
-            "Position_Y": 830.0,
-            "MRItemType": "MRCheckBox",
-            "MRItemName": "대리인이 서명하게 된 사유",
-            "MrContNm": "설명하는 것이 환자의 심신에 중대한 나쁜 영향을 미칠 것이 명백함",
-            "TextValue": "True",
-            "DataValue": null,
-            "Rank": "3",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "61577",
-            "MRAttributeKey": "57752",
-            "MRitCd": "A0055012",
-            "AttrCd": "A0055012",
-            "Position_X": 135.0,
-            "Position_Y": 861.0,
-            "MRItemType": "MRCheckBox",
-            "MRItemName": "대리인이 서명하게 된 사유",
-            "MrContNm": "환자 본인이 승낙에 관한 권한을 특정인에게 위임함",
-            "TextValue": "False",
-            "DataValue": null,
-            "Rank": "4",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "61577",
-            "MRAttributeKey": "57752",
-            "MRitCd": "A0055012",
-            "AttrCd": "A0055012",
-            "Position_X": 135.0,
-            "Position_Y": 914.0,
-            "MRItemType": "MRCheckBox",
-            "MRItemName": "대리인이 서명하게 된 사유",
-            "MrContNm": "기타",
-            "TextValue": "False",
-            "DataValue": null,
-            "Rank": "5",
-            "Events": null
-        },
-        {
-            "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
-            "FrmKey": 35726,
-            "MRItemKey": "77070",
-            "MRAttributeKey": "73137",
-            "MRitCd": "A0068720",
-            "AttrCd": "A0068720",
-            "Position_X": 222.0,
-            "Position_Y": 717.0,
-            "MRItemType": "MRTextBox",
-            "MRItemName": "전화/휴대전화",
-            "MrContNm": "",
-            "TextValue": "010-222-3336",
-            "DataValue": null,
-            "Rank": "",
-            "Events": null
-        }
-        ]
-    },
-    "SelectedPredefineSetCd": null,
-    "PredefineSetVisualTrees": []
-    }
-]
-};
-
-let data2 = 
-{
-"Key": null,
-"Regions": [
-    {
-    "Children": [],
-    "ID": "8709d1ef-2a88-43f0-8216-5bd42030e396",
-    "Name": "기본",
-    "RegionType": 1,
-    "VisualTree": {
-        "SetCd": null,
-        "Items": [
-        {
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000118000000000000",
             "FrmKey": 40596,
@@ -421,8 +26,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000159000000000000",
             "FrmKey": 40596,
@@ -439,8 +44,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
             "ControlCd": "00000000SOAP0000000000320000",
             "SoRank": 32,
@@ -458,8 +63,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000119000000000000",
             "FrmKey": 40596,
@@ -476,8 +81,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000121000000000000",
             "FrmKey": 40596,
@@ -494,8 +99,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000122000000000000",
             "FrmKey": 40596,
@@ -512,8 +117,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000120000000000000",
             "FrmKey": 40596,
@@ -530,8 +135,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000123000000000000",
             "FrmKey": 40596,
@@ -548,8 +153,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000124000000000000",
             "FrmKey": 40596,
@@ -566,8 +171,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000160000000000000",
             "FrmKey": 40596,
@@ -584,8 +189,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000161000000000000",
             "FrmKey": 40596,
@@ -602,8 +207,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000162000000000000",
             "FrmKey": 40596,
@@ -620,8 +225,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000163000000000000",
             "FrmKey": 40596,
@@ -638,8 +243,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000164000000000000",
             "FrmKey": 40596,
@@ -656,8 +261,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000165000000000000",
             "FrmKey": 40596,
@@ -674,8 +279,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000166000000000000",
             "FrmKey": 40596,
@@ -692,8 +297,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000127000000000000",
             "FrmKey": 40596,
@@ -710,8 +315,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000128000000000000",
             "FrmKey": 40596,
@@ -728,8 +333,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000129000000000000",
             "FrmKey": 40596,
@@ -746,8 +351,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000130000000000000",
             "FrmKey": 40596,
@@ -764,8 +369,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
             "ControlCd": "00000000SOAP0000000000380000",
             "SoRank": 38,
@@ -783,8 +388,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000157000000000000",
             "FrmKey": 40596,
@@ -801,8 +406,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000131000000000000",
             "FrmKey": 40596,
@@ -819,8 +424,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000184000000000000",
             "FrmKey": 40596,
@@ -837,8 +442,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000132000000000000",
             "FrmKey": 40596,
@@ -855,8 +460,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000133000000000000",
             "FrmKey": 40596,
@@ -873,8 +478,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000134000000000000",
             "FrmKey": 40596,
@@ -891,8 +496,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000135000000000000",
             "FrmKey": 40596,
@@ -909,8 +514,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000136000000000000",
             "FrmKey": 40596,
@@ -927,8 +532,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000137000000000000",
             "FrmKey": 40596,
@@ -945,8 +550,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000138000000000000",
             "FrmKey": 40596,
@@ -963,8 +568,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000139000000000000",
             "FrmKey": 40596,
@@ -981,8 +586,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000140000000000000",
             "FrmKey": 40596,
@@ -999,8 +604,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000141000000000000",
             "FrmKey": 40596,
@@ -1017,8 +622,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000142000000000000",
             "FrmKey": 40596,
@@ -1035,8 +640,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000143000000000000",
             "FrmKey": 40596,
@@ -1053,8 +658,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000144000000000000",
             "FrmKey": 40596,
@@ -1071,8 +676,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000145000000000000",
             "FrmKey": 40596,
@@ -1089,8 +694,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000146000000000000",
             "FrmKey": 40596,
@@ -1107,8 +712,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000147000000000000",
             "FrmKey": 40596,
@@ -1125,8 +730,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000148000000000000",
             "FrmKey": 40596,
@@ -1143,8 +748,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000149000000000000",
             "FrmKey": 40596,
@@ -1161,8 +766,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000187000000000000",
             "FrmKey": 40596,
@@ -1179,8 +784,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000188000000000000",
             "FrmKey": 40596,
@@ -1197,8 +802,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000189000000000000",
             "FrmKey": 40596,
@@ -1215,8 +820,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000190000000000000",
             "FrmKey": 40596,
@@ -1233,8 +838,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
             "ControlCd": "00000000SOAP0000000000360000",
             "SoRank": 36,
@@ -1252,8 +857,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
             "ControlCd": "00000000SOAP0000000000390000",
             "SoRank": 39,
@@ -1271,8 +876,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
             "ControlCd": "00000000SOAP0000000000310000",
             "SoRank": 31,
@@ -1290,8 +895,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000060000000000000",
             "FrmKey": 40596,
@@ -1308,8 +913,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000167000000000000",
             "FrmKey": 40596,
@@ -1326,8 +931,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000168000000000000",
             "FrmKey": 40596,
@@ -1344,8 +949,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000169000000000000",
             "FrmKey": 40596,
@@ -1362,8 +967,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000173000000000000",
             "FrmKey": 40596,
@@ -1380,8 +985,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000170000000000000",
             "FrmKey": 40596,
@@ -1398,8 +1003,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000171000000000000",
             "FrmKey": 40596,
@@ -1416,8 +1021,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000172000000000000",
             "FrmKey": 40596,
@@ -1434,8 +1039,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000174000000000000",
             "FrmKey": 40596,
@@ -1452,8 +1057,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000175000000000000",
             "FrmKey": 40596,
@@ -1470,8 +1075,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000176000000000000",
             "FrmKey": 40596,
@@ -1488,8 +1093,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000177000000000000",
             "FrmKey": 40596,
@@ -1506,8 +1111,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000178000000000000",
             "FrmKey": 40596,
@@ -1524,8 +1129,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000098000000000000",
             "FrmKey": 40596,
@@ -1542,8 +1147,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000099000000000000",
             "FrmKey": 40596,
@@ -1560,8 +1165,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000100000000000000",
             "FrmKey": 40596,
@@ -1578,8 +1183,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000103000000000000",
             "FrmKey": 40596,
@@ -1596,8 +1201,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000104000000000000",
             "FrmKey": 40596,
@@ -1614,8 +1219,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000105000000000000",
             "FrmKey": 40596,
@@ -1632,8 +1237,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000153000000000000",
             "FrmKey": 40596,
@@ -1650,8 +1255,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000106000000000000",
             "FrmKey": 40596,
@@ -1668,8 +1273,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000107000000000000",
             "FrmKey": 40596,
@@ -1686,8 +1291,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000108000000000000",
             "FrmKey": 40596,
@@ -1704,8 +1309,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000109000000000000",
             "FrmKey": 40596,
@@ -1722,8 +1327,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000110000000000000",
             "FrmKey": 40596,
@@ -1740,8 +1345,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000111000000000000",
             "FrmKey": 40596,
@@ -1758,8 +1363,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000112000000000000",
             "FrmKey": 40596,
@@ -1776,8 +1381,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000113000000000000",
             "FrmKey": 40596,
@@ -1794,8 +1399,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000114000000000000",
             "FrmKey": 40596,
@@ -1812,8 +1417,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000154000000000000",
             "FrmKey": 40596,
@@ -1830,8 +1435,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000155000000000000",
             "FrmKey": 40596,
@@ -1848,8 +1453,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000158000000000000",
             "FrmKey": 40596,
@@ -1866,8 +1471,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000115000000000000",
             "FrmKey": 40596,
@@ -1884,8 +1489,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000179000000000000",
             "FrmKey": 40596,
@@ -1902,8 +1507,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000117000000000000",
             "FrmKey": 40596,
@@ -1920,8 +1525,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000116000000000000",
             "FrmKey": 40596,
@@ -1938,8 +1543,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000102000000000000",
             "FrmKey": 40596,
@@ -1956,8 +1561,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
             "ControlCd": "00000000SOAP0000000000220000",
             "SoRank": 22,
@@ -1975,8 +1580,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000086000000000000",
             "FrmKey": 40596,
@@ -1993,8 +1598,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.SOAPDesignBoxItem, MobileCore",
             "ControlCd": "00000000SOAP0000000000040000",
             "SoRank": 4,
@@ -2012,8 +1617,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000180000000000000",
             "FrmKey": 40596,
@@ -2030,8 +1635,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000181000000000000",
             "FrmKey": 40596,
@@ -2048,8 +1653,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000182000000000000",
             "FrmKey": 40596,
@@ -2066,8 +1671,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000183000000000000",
             "FrmKey": 40596,
@@ -2084,8 +1689,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000185000000000000",
             "FrmKey": 40596,
@@ -2102,8 +1707,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000192000000000000",
             "FrmKey": 40596,
@@ -2120,8 +1725,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000193000000000000",
             "FrmKey": 40596,
@@ -2138,8 +1743,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000200000000000000",
             "FrmKey": 40596,
@@ -2156,8 +1761,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000201000000000000",
             "FrmKey": 40596,
@@ -2174,8 +1779,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000202000000000000",
             "FrmKey": 40596,
@@ -2192,8 +1797,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000203000000000000",
             "FrmKey": 40596,
@@ -2210,8 +1815,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000204000000000000",
             "FrmKey": 40596,
@@ -2228,8 +1833,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000205000000000000",
             "FrmKey": 40596,
@@ -2246,8 +1851,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.LabelDesignBoxItem, MobileCore",
             "LabelCd": "00000000LB000206000000000000",
             "FrmKey": 40596,
@@ -2264,8 +1869,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "59531",
@@ -2281,8 +1886,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "59532",
@@ -2298,8 +1903,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "48958",
@@ -2315,8 +1920,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "71708",
@@ -2332,8 +1937,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "75151",
@@ -2349,8 +1954,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "75151",
@@ -2366,8 +1971,8 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "77983",
@@ -2383,8 +1988,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "77983",
@@ -2400,10 +2005,10 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": [
-            "{00077983_00074050_0002} == true -> {00077983_00074050_0001} = true"
+              "{00077983_00074050_0002} == true -> {00077983_00074050_0001} = true"
             ]
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "57330",
@@ -2419,8 +2024,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "59771",
@@ -2436,8 +2041,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "59772",
@@ -2453,11 +2058,11 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": [
-            "{00059772_00055999_0001} == false -> {00074615_00070690}[ IsRequired ] = true",
-            "{00059772_00055999_0001} == true -> {00074615_00070690}[ IsRequired ] = false"
+              "{00059772_00055999_0001} == false -> {00074615_00070690}[ IsRequired ] = true",
+              "{00059772_00055999_0001} == true -> {00074615_00070690}[ IsRequired ] = false"
             ]
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "74615",
@@ -2473,8 +2078,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "61477",
@@ -2490,8 +2095,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "57321",
@@ -2507,8 +2112,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "48977",
@@ -2524,8 +2129,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "59610",
@@ -2541,8 +2146,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "49312",
@@ -2558,8 +2163,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "48954",
@@ -2575,8 +2180,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2592,8 +2197,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2609,8 +2214,8 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2626,8 +2231,8 @@ let data2 =
             "DataValue": null,
             "Rank": "3",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2643,8 +2248,8 @@ let data2 =
             "DataValue": null,
             "Rank": "4",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2660,8 +2265,8 @@ let data2 =
             "DataValue": null,
             "Rank": "5",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2677,8 +2282,8 @@ let data2 =
             "DataValue": null,
             "Rank": "6",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2694,8 +2299,8 @@ let data2 =
             "DataValue": null,
             "Rank": "7",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2711,8 +2316,8 @@ let data2 =
             "DataValue": null,
             "Rank": "8",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2728,8 +2333,8 @@ let data2 =
             "DataValue": null,
             "Rank": "9",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2745,8 +2350,8 @@ let data2 =
             "DataValue": null,
             "Rank": "10",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2762,8 +2367,8 @@ let data2 =
             "DataValue": null,
             "Rank": "11",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2779,8 +2384,8 @@ let data2 =
             "DataValue": null,
             "Rank": "12",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2796,8 +2401,8 @@ let data2 =
             "DataValue": null,
             "Rank": "13",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2813,8 +2418,8 @@ let data2 =
             "DataValue": null,
             "Rank": "14",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64483",
@@ -2830,8 +2435,8 @@ let data2 =
             "DataValue": null,
             "Rank": "15",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "57304",
@@ -2847,8 +2452,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "57304",
@@ -2864,12 +2469,12 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": [
-            "{00057304_00053544_0002} == true -> {00058459_00054703} = \"  \"",
-            "{00057304_00053544_0002} == true -> {00058459_00054703}[ IsRequired ] = true,{00058381_00054626}[ IsRequired ] = true,{00064484_00060667_0001}[ IsRequired ] = true",
-            "{00057304_00053544_0002} == false -> {00058381_00054626}[ IsRequired ] = false,{00064484_00060667_0001}[ IsRequired ] = false"
+              "{00057304_00053544_0002} == true -> {00058459_00054703} = \"  \"",
+              "{00057304_00053544_0002} == true -> {00058459_00054703}[ IsRequired ] = true,{00058381_00054626}[ IsRequired ] = true,{00064484_00060667_0001}[ IsRequired ] = true",
+              "{00057304_00053544_0002} == false -> {00058381_00054626}[ IsRequired ] = false,{00064484_00060667_0001}[ IsRequired ] = false"
             ]
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "58459",
@@ -2885,8 +2490,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "56968",
@@ -2902,8 +2507,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "58381",
@@ -2919,8 +2524,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "77070",
@@ -2936,8 +2541,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64484",
@@ -2953,8 +2558,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64484",
@@ -2970,8 +2575,8 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64484",
@@ -2987,8 +2592,8 @@ let data2 =
             "DataValue": null,
             "Rank": "3",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64484",
@@ -3004,8 +2609,8 @@ let data2 =
             "DataValue": null,
             "Rank": "4",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "64484",
@@ -3021,8 +2626,8 @@ let data2 =
             "DataValue": null,
             "Rank": "5",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "60077",
@@ -3038,8 +2643,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "57307",
@@ -3055,8 +2660,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "56969",
@@ -3072,8 +2677,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81372",
@@ -3089,8 +2694,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81372",
@@ -3106,8 +2711,8 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81372",
@@ -3123,8 +2728,8 @@ let data2 =
             "DataValue": null,
             "Rank": "3",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81372",
@@ -3140,8 +2745,8 @@ let data2 =
             "DataValue": null,
             "Rank": "4",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81218",
@@ -3157,8 +2762,8 @@ let data2 =
             "DataValue": null,
             "Rank": "",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81112",
@@ -3174,8 +2779,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81112",
@@ -3191,8 +2796,8 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "81380",
@@ -3208,8 +2813,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "82939",
@@ -3225,8 +2830,8 @@ let data2 =
             "DataValue": null,
             "Rank": "1",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "82939",
@@ -3242,8 +2847,8 @@ let data2 =
             "DataValue": null,
             "Rank": "2",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "82939",
@@ -3259,8 +2864,8 @@ let data2 =
             "DataValue": null,
             "Rank": "3",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "82939",
@@ -3276,8 +2881,8 @@ let data2 =
             "DataValue": null,
             "Rank": "4",
             "Events": null
-        },
-        {
+          },
+          {
             "$type": "MobileCore.MRItemDesignBoxItem, MobileCore",
             "FrmKey": 40596,
             "MRItemKey": "82939",
@@ -3293,57 +2898,11 @@ let data2 =
             "DataValue": null,
             "Rank": "5",
             "Events": null
-        }
+          }
         ]
-    },
-    "SelectedPredefineSetCd": null,
-    "PredefineSetVisualTrees": []
+      },
+      "SelectedPredefineSetCd": null,
+      "PredefineSetVisualTrees": []
     }
-]
-};
-
-let create = function() {
-
-    let e = document.getElementById("fileName");
-    let fileName = e.options[e.selectedIndex].value;
-    /*
-    switch (fileName) {
-        case "data1" :  
-            getData(data1); 
-            break;
-        case "data2" :  
-            getData(data2); 
-            break;
-    };
-    */
-    let requestURL = "/sample/"+fileName;
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function(e) { 
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                //console.log(xhr.responseText);
-                let result = JSON.parse(xhr.responseText);
-                //console.log(result);
-                getData(result); 
-            } else {
-                //console.log(xhr);
-            }
-        };        
-    };
-    xhr.onprogress = function(e) {  /*console.log(e);*/ };
-    xhr.onabort = function(e) { /*console.log(e);*/	};
-    xhr.ontimeout = function(e) {   /*console.log(e);*/	};
-    xhr.open('GET', requestURL, true);
-    xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
-    xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
-    xhr.send();
-
+  ]
 }
-
-let setButtonEvent = function() {
-    // 생성 버튼 이벤트 바인딩
-    let createButton = window.document.getElementById("create");
-    createButton.onclick = create;
-}
-
-export { create, setButtonEvent }
