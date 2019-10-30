@@ -4,15 +4,17 @@
 세브란스 전자동의서 Proof of Concept 진행을 위한 샘플 코드
 -------------
 
->1. nginx 에서 동작할 수 있도록 plain html, plain javascript 로 작성했음
->2. nginx.conf 에서 해당 경로 바라볼 수 있게 할 것
+> 1. nginx 에서 동작할 수 있도록 plain html, plain javascript 로 작성했음
 
->>    location / {
->>        root   	**{D:\\dev-repo\\treetory\\severance\\html-agreement-viewer\\poc;}**
->>        index	    **poc.html;**
->>    }
+> 2. nginx.conf 에서 해당 경로 바라볼 수 있게 할 것
+<code>
+    location / {
+        root   	**{D:\\dev-repo\\treetory\\severance\\html-agreement-viewer\\poc;}**
+        index	**poc.html;**
+    }
+</code>
 
->3. 해당 코드는 import 구문을 사용하는 관계로 특정 버전 이상의 browser 에서만 동작 가능
+> 3. 해당 코드는 import 구문을 사용하는 관계로 특정 버전 이상의 browser 에서만 동작 가능
 ***********************************************************************
 >   IE                      :   Not Supported
 >   Edge                    :   Edge 76
