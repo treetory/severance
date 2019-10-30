@@ -11,6 +11,9 @@
         index	**poc.html;**
     }```
 
+	```location / {
+        proxy_pass 	**_http://localhost:8080/sample;_**
+    }```
 
 3. 해당 코드는 import 구문을 사용하는 관계로 특정 버전 이상의 browser 에서만 동작 가능
 
