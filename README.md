@@ -9,9 +9,9 @@
     ```location / {
         root   	**_{D:\\dev-repo\\treetory\\severance\\html-agreement-viewer\\poc;}_**
         index	**poc.html;**
-    }```
+    }
 
-	```location / {
+	location / {
         proxy_pass 	**_http://localhost:8080/sample;_**
     }```
 
