@@ -3328,8 +3328,13 @@ const create = function() {
                 if (_items.length > 0) {
                     getData(_items);
                 } else {
-                    alert("페이지 refresh 합니다. 다시 실행해주세요.");
-                    location.reload();
+                    let flag = confirm("페이지 refresh를 위해 다시 실행할까요?");
+                    if (flag) {
+                        location.reload();
+                    } else {
+                        alert("ㅜㅜ 그럼 여기 블로그 가서 추천 좀...");
+                        location.href = "https://blog.naver.com/kbearp";
+                    }
                 };
             }
         };        

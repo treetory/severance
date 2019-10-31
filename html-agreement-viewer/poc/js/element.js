@@ -262,7 +262,7 @@ const createPictureBox = (function(){
 
         let right_div = document.createElement("div");
         right_div.style.display = "inline-block";
-        right_div.style.padding = "10px 10px 10px 10px";
+        //right_div.style.padding = "10px 10px 10px 10px";
         right_div.style.width = (e.style.width+20)+"px";
         right_div.style.height = (e.style.height+20)+"px";
 
@@ -282,8 +282,6 @@ const createPictureBox = (function(){
         down_div.appendChild(left_div);
         down_div.appendChild(right_div);
         
-        
-
         cell_div.appendChild(upper_div);
         cell_div.appendChild(down_div);
 
@@ -356,6 +354,15 @@ const createSoapBox = (function(){
         return horizontal_div;
     };
     return main;
+
+})();
+
+/**
+ * CheckBox 를 담고 있는 영역을 만든다.
+ */
+const createCheckBox = (function(){
+
+    
 
 })();
 

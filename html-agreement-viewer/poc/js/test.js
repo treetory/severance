@@ -391,9 +391,8 @@ const aggregate = (function() {
 
     let _items = items;
 
-    if (items.length == 0) {
-      // 전체 아이템을 순회하면, 정제된 acc 를 반환한다.
-      //printResult(acc/*, "MRItemType"*/);
+    if (_items.length == 0) {
+      // 전체 아이템을 순회한 후 정제된 acc 를 반환한다.
       /*
       acc.forEach(e => {
         if (e.MRItemType == "MRCheckBox") {
@@ -404,9 +403,9 @@ const aggregate = (function() {
       return acc;
     } else {
       // items 에서 하나씩 빼와서 그룹화해서 acc 에 옮겨 담을 수 있게 처리한다.
-      let item = items[0];
-      items.shift();
-      return main(items, _group(item, acc));
+      let _item = _items[0];
+      _items.shift();
+      return main(_items, _group(_item, acc));
     };
   };
   return main;
