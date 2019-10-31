@@ -3306,33 +3306,37 @@ let create = function() {
 
     let e = document.getElementById("fileName");
     let fileName = e.options[e.selectedIndex].value;
-    /*
-    switch (fileName) {
-        case "data1" :  
-            getData(data1); 
-            break;
-        case "data2" :  
-            getData(data2); 
-            break;
-    };
-    */
+
+    // CORS 때문에 동일한 웹서버에 위치한 경로로 호출해야 한다.
     let requestURL = "/sample/"+fileName;
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                //console.log(xhr.responseText);
                 let result = JSON.parse(xhr.responseText);
-                //console.log(result);
                 getData(result); 
-            } else {
-                //console.log(xhr);
+            } else {  
+                let _items = [];
+                switch (fileName) {
+                    case "data1" :  
+                        _items = data1.Regions[0].VisualTree.Items;
+                        break;
+                    case "data2" :  
+                        _items = data2.Regions[0].VisualTree.Items;
+                        break;
+                };
+                if (_items.length > 0) {
+                    getData(_items);
+                } else {
+                    alert("페이지 refresh 합니다. 다시 실행해주세요.");
+                    location.reload();
+                };
             }
         };        
     };
-    xhr.onprogress = function(e) {  /*console.log(e);*/ };
+    xhr.onprogress = function(e) { /*console.log(e);*/ };
     xhr.onabort = function(e) { /*console.log(e);*/	};
-    xhr.ontimeout = function(e) {   /*console.log(e);*/	};
+    xhr.ontimeout = function(e) { /*console.log(e);*/ };
     xhr.open('GET', requestURL, true);
     xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
     xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");

@@ -80,10 +80,11 @@ let getData = (function(){
   
   let _draw = (function(){
     
-    let _execute = function(obj) {
+    let _execute = function(array) {
 
       // 밑에서 recursive 하게 돌면서 빨아들이게 하다 보니, 원본 데이터에 문제 발생
-      let _items = sort(obj.Regions[0].VisualTree.Items);
+      //let _items = sort(obj.Regions[0].VisualTree.Items);
+      let _items = sort(array);
       //let result = aggregate(items);
       let _aggregation = aggregate(_items);
       let _result = createHtmlElement(_aggregation);
@@ -452,53 +453,53 @@ let createHtmlElement = (function(){
         _element.style.paddingLeft = element.Position_X+"px";
         break;
       case "MRTextBox" :
-          _element.style.display = "table-cell";
-          delete _element.style.width;
-          _element.style.height = "100%";
-          _element.innerText = element.MRItemName;
-          _element.tag = "input";
-          _element.type = "text";
-          _element.id = element.MRItemKey;
-          _element.class = element.MRItemKey;
-          _element.style.paddingLeft = element.Position_X+"px";
-          _element.value = (element.TextValue == undefined || element.TextValue == null ? "" : element.TextValue);
+        _element.style.display = "table-cell";
+        delete _element.style.width;
+        _element.style.height = "100%";
+        _element.innerText = element.MRItemName;
+        _element.tag = "input";
+        _element.type = "text";
+        _element.id = element.MRItemKey;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        _element.value = (element.TextValue == undefined || element.TextValue == null ? "" : element.TextValue);
         break;
       case "MRDateTimePicker" :
-          _element.style.display = "table-cell";
-          delete _element.style.width;
-          _element.style.height = "100%";
-          _element.innerText = element.MRItemName;
-          _element.tag = "input";
-          _element.type = "datetime";
-          _element.id = element.MRItemKey;
-          _element.class = element.MRItemKey;
-          _element.style.paddingLeft = element.Position_X+"px";
-          _element.value = (element.TextValue == undefined || element.TextValue == null ? "" : element.TextValue);
+        _element.style.display = "table-cell";
+        delete _element.style.width;
+        _element.style.height = "100%";
+        _element.innerText = element.MRItemName;
+        _element.tag = "input";
+        _element.type = "datetime";
+        _element.id = element.MRItemKey;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        _element.value = (element.TextValue == undefined || element.TextValue == null ? "" : element.TextValue);
         break;  
       case "MRDatePicker" :
-          _element.style.display = "table-cell";
-          delete _element.style.width;
-          _element.style.height = "100%";
-          _element.innerText = element.MRItemName;
-          _element.tag = "input";
-          _element.type = "date";
-          _element.id = element.MRItemKey;
-          _element.class = element.MRItemKey;
-          _element.style.paddingLeft = element.Position_X+"px";
-          _element.value = (element.TextValue == undefined || element.TextValue == null ? "" : element.TextValue);
+        _element.style.display = "table-cell";
+        delete _element.style.width;
+        _element.style.height = "100%";
+        _element.innerText = element.MRItemName;
+        _element.tag = "input";
+        _element.type = "date";
+        _element.id = element.MRItemKey;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        _element.value = (element.TextValue == undefined || element.TextValue == null ? "" : element.TextValue);
         break;
       case "MRPictureBox" :
-            _element.style.display = "table-cell";
-            delete _element.style.width;
-            _element.style.height = "100%";
-            _element.innerText = element.MRItemName;
-            _element.tag = "img";
-            _element.id = element.MRItemKey;
-            _element.class = element.MRItemKey;
-            _element.style.paddingLeft = element.Position_X+"px";
-            // 이미지 어디에 담아서 보내주는지 확인 필요
-            _element.src = element.DataValue;
-          break;    
+        _element.style.display = "table-cell";
+        delete _element.style.width;
+        _element.style.height = "100%";
+        _element.innerText = element.MRItemName;
+        _element.tag = "img";
+        _element.id = element.MRItemKey;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        // 이미지 어디에 담아서 보내주는지 확인 필요
+        _element.src = element.DataValue;
+        break;    
       default:
         _element = null;
         break;
