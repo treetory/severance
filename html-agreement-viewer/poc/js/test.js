@@ -4,7 +4,9 @@ import {
   createDateTimePicker, 
   createDatePicker, 
   createPictureBox, 
-  createSoapBox
+  createSoapBox,
+  createCheckBox,
+  createRadio
 } from "./element.js";
 //'use strict';
 
@@ -116,6 +118,14 @@ const getData = (function(){
                 break;
               case "date" : 
                 row_div = createDatePicker(e);
+                horizontal_table.appendChild(row_div);
+                break;
+              case "radio" :
+                row_div = createRadio(e);
+                horizontal_table.appendChild(row_div);
+              break;  
+              case "checkbox" :
+                row_div = createCheckBox(e);
                 horizontal_table.appendChild(row_div);
                 break;
             }
@@ -442,7 +452,8 @@ const createHtmlElement = (function(){
       "src" : "",
       "readonly" : false,
       "disabled" : false,
-      "checked" : false
+      "checked" : false,
+      "options" : []
     };
     
     switch (element.MRItemType) {
@@ -515,6 +526,30 @@ const createHtmlElement = (function(){
         _element.style.paddingLeft = element.Position_X+"px";
         // 이미지 어디에 담아서 보내주는지 확인 필요
         _element.src = element.DataValue;
+        break;
+      case "MRRadioBox" : 
+        _element.style.display = "table-cell";
+        delete _element.style.width;
+        _element.style.height = "100%";
+        _element.innerText = element.MrContNm;
+        _element.tag = "input";
+        _element.type = "radio";
+        _element.id = element.MRItemKey;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        _element.options = element.Options;
+        break;
+      case "MRCheckBox" : 
+        _element.style.display = "table-cell";
+        delete _element.style.width;
+        _element.style.height = "100%";
+        _element.innerText = element.MrContNm;
+        _element.tag = "input";
+        _element.type = "checkbox";
+        _element.id = element.MRItemKey;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        _element.options = element.Options;
         break;
       default:
         _element = null;

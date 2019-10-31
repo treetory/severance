@@ -362,7 +362,125 @@ const createSoapBox = (function(){
  */
 const createCheckBox = (function(){
 
-    
+    let main = function(e) {
+        
+        // row 영역
+        let horizontal_div = document.createElement("div");
+        horizontal_div.style.display = "inline-block";
+        horizontal_div.style.width = "100%";
+        horizontal_div.style.height = "100%";
+        
+        // cell 영역
+        let cell_div = document.createElement("div");
+        cell_div.id = "DIV_"+e.id;
+        cell_div.style.height = e.style.height;
+        cell_div.style.padding = "10px 10px 10px 10px";
+        /*
+        // cell 내부 좌측 label 영역
+        let left_div = document.createElement("div");
+        left_div.style.display = "inline-block";
+        left_div.style.width = "180px";
+        left_div.style.padding = "10px 10px 10px 10px";
+
+        // cell 내부 우측 input 영역
+        let right_div = document.createElement("div");
+        right_div.style.display = "inline-block";
+        right_div.style.padding = "10px 10px 10px 10px";
+        right_div.style.width = "75%";
+        */
+        // TODO 실제 CheckBox 해당되는 element 가 만들어지는 부분 -> 컴포넌트 화 시킬 필요 있음
+        e.options.forEach(o => {
+            
+            let row_div = document.createElement("div");
+            row_div.style.display = "inline-block";
+            row_div.style.padding = "10px 10px 10px 10px";
+
+            let input = document.createElement("input");
+            input.type = e.type;
+            input.id = e.id;
+            input.name = e.id;
+            input.value = o.Rank;
+
+            row_div.appendChild(input);   
+            
+            let label = document.createElement("label");
+            label.innerText = o.MrContNm;
+            label.style.height = "20px";
+            label.style.paddingRight = "10px";
+
+            row_div.appendChild(label);
+
+            cell_div.appendChild(row_div);   
+        });
+        
+        //cell_div.appendChild(left_div);
+        //cell_div.appendChild(right_div);
+
+        horizontal_div.appendChild(cell_div);
+
+        return horizontal_div;
+    }
+    return main;
+
+})();
+
+/**
+ * Radio 를 담고 있는 영역을 만든다.
+ */
+const createRadio = (function(){
+
+    let main = function(e) {
+        
+        // row 영역
+        let horizontal_div = document.createElement("div");
+        horizontal_div.style.display = "inline-block";
+        horizontal_div.style.width = "100%";
+        horizontal_div.style.height = "100%";
+        
+        // cell 영역
+        let cell_div = document.createElement("div");
+        cell_div.id = "DIV_"+e.id;
+        cell_div.style.height = e.style.height;
+        cell_div.style.padding = "10px 10px 10px 10px";
+        
+        // cell 내부 좌측 label 영역
+        let left_div = document.createElement("div");
+        left_div.style.display = "inline-block";
+        left_div.style.width = "180px";
+        left_div.style.padding = "10px 10px 10px 10px";
+
+        // cell 내부 우측 input 영역
+        let right_div = document.createElement("div");
+        right_div.style.display = "inline-block";
+        right_div.style.padding = "10px 10px 10px 10px";
+        right_div.style.width = "75%";
+
+        // TODO 실제 Radio 에 해당되는 element 가 만들어지는 부분 -> 컴포넌트 화 시킬 필요 있음
+        e.options.forEach(o => {
+            let input = document.createElement("input");
+            input.type = e.type;
+            input.id = e.id;
+            input.name = e.id;
+            input.value = o.Rank;
+
+            right_div.appendChild(input);   
+            
+            let label = document.createElement("label");
+            label.innerText = o.MrContNm;
+            label.style.height = "20px";
+            label.style.paddingRight = "10px";
+
+            right_div.appendChild(label);   
+        });
+        
+        cell_div.appendChild(left_div);
+        cell_div.appendChild(right_div);
+
+        horizontal_div.appendChild(cell_div);
+
+        return horizontal_div;
+    }
+    return main;
 
 })();
 
@@ -372,5 +490,7 @@ export {
     createDateTimePicker, 
     createDatePicker, 
     createPictureBox ,
-    createSoapBox
+    createSoapBox,
+    createCheckBox,
+    createRadio
 };
