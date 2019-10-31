@@ -12,7 +12,7 @@ import {
  * 정렬되지 않은 items 를 받았으므로 선 정렬처리를 하기 위한 함수
  * @param {*} items 
  */
-let sort = function(items) {
+const sort = function(items) {
   // Rank 기준 정렬
   items.sort(function(a, b) {
     if (a.Rank > b.Rank) {
@@ -51,7 +51,7 @@ let sort = function(items) {
  * @param {*} items     : console 로 풀어서 찍어보고 싶은 array
  * @param {*} attrKey   : items 의 각 row object 에서 출력하여 확인하고 싶은 attribute 의 속성 key 값, 지정된 속성만 콘솔에 찍어본다.
  */
-let printResult = function(items, attrKey) {
+const printResult = function(items, attrKey) {
   items.forEach(element => {
     if (attrKey == undefined || attrKey == null || attrKey == "") {
       console.log(element);
@@ -65,7 +65,7 @@ let printResult = function(items, attrKey) {
  * server 로부터 데이터 수령이 된 지점
  * @param {*} obj 
  */
-let getData = (function(){
+const getData = (function(){
   
   let _prepare = (function(){
     let _execute = function() {
@@ -151,7 +151,7 @@ let getData = (function(){
 /**
  * 같은 그룹끼리 묶기 위한 함수
  */
-let aggregate = (function() {
+const aggregate = (function() {
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // inner method (closure 를 이용하여 해당 scope 은 동일 scope boundary 에서 동작하도록 처리함)
@@ -416,7 +416,7 @@ let aggregate = (function() {
 /**
  * aggregate 과정을 통해 정제된 것을 대상으로 HtmlElement 생성
  */
-let createHtmlElement = (function(){
+const createHtmlElement = (function(){
 
   /**
    * 유형별로 tag 만들기 위한 객체로 다시 정제한다.

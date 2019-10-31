@@ -1,6 +1,6 @@
 'use strict';
 
-let SIGNPAD = (function() {
+const SIGNPAD = (function() {
 
     const SIGNPAD = (function(){
         let construct = function (e, div) {
@@ -16,7 +16,7 @@ let SIGNPAD = (function() {
         return construct;
     })();
 
-    let init = (function(){
+    const init = (function(){
         let main = function(e) {
             window.requestAnimFrame = (function (callback) {
                 return window.requestAnimationFrame ||
@@ -103,7 +103,7 @@ let SIGNPAD = (function() {
     })();
 
     // Get the position of the mouse relative to the canvas
-    let getMousePos = function(canvasDom, mouseEvent) {
+    const getMousePos = function(canvasDom, mouseEvent) {
         let rect = canvasDom.getBoundingClientRect();
         return {
             x: mouseEvent.clientX - rect.left,
@@ -112,7 +112,7 @@ let SIGNPAD = (function() {
     };
 
     // Get the position of a touch relative to the canvas
-    let getTouchPos = function (canvasDom, touchEvent) {
+    const getTouchPos = function (canvasDom, touchEvent) {
         let rect = canvasDom.getBoundingClientRect();
         return {
             x: touchEvent.touches[0].clientX - rect.left,
@@ -121,7 +121,7 @@ let SIGNPAD = (function() {
     }
 
     // Draw to the canvas
-    let renderCanvas = function (ctx, drawing, lastPos, mousePos) {
+    const renderCanvas = function (ctx, drawing, lastPos, mousePos) {
         if (drawing) {
             ctx.moveTo(lastPos.x, lastPos.y);
             ctx.lineTo(mousePos.x, mousePos.y);

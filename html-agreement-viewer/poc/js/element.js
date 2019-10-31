@@ -4,7 +4,7 @@ import { SIGNPAD } from "./signpad.js";
 /**
  * 라벨 tag 를 담고 있는 영역을 만든다.
  */
-let createLabel = (function(){
+const createLabel = (function(){
 
     let main = function(e) {
 
@@ -40,7 +40,7 @@ let createLabel = (function(){
 /**
  * input text 를 담고 있는 영역을 만든다.
  */
-let createTextBox = (function(){
+const createTextBox = (function(){
 
     let main = function(e) {
 
@@ -100,7 +100,7 @@ let createTextBox = (function(){
 /**
  * input datetime 을 담고 있는 영역을 만든다.
  */
-let createDateTimePicker = (function(){
+const createDateTimePicker = (function(){
 
     let main = function(e) {
 
@@ -160,7 +160,7 @@ let createDateTimePicker = (function(){
 /**
  * input date 을 담고 있는 영역을 만든다.
  */
-let createDatePicker = (function(){
+const createDatePicker = (function(){
 
     let main = function(e) {
 
@@ -220,7 +220,7 @@ let createDatePicker = (function(){
 /**
  * input date 을 담고 있는 영역을 만든다.
  */
-let createPictureBox = (function(){
+const createPictureBox = (function(){
 
     let main = function(e) {
 
@@ -298,7 +298,7 @@ let createPictureBox = (function(){
 /**
  * 서명패드 를 담고 있는 영역을 만든다.
  */
-let createSoapBox = (function(){
+const createSoapBox = (function(){
 
     let main = function(e) {
 

@@ -1,6 +1,6 @@
 import { getData } from "./test.js";
 /**/
-let data1 =
+const data1 =
 {
 "Key": null,
 "Regions": [
@@ -392,7 +392,7 @@ let data1 =
 ]
 };
 
-let data2 = 
+const data2 = 
 {
 "Key": null,
 "Regions": [
@@ -3302,7 +3302,7 @@ let data2 =
 ]
 };
 
-let create = function() {
+const create = function() {
 
     let e = document.getElementById("fileName");
     let fileName = e.options[e.selectedIndex].value;
@@ -3344,7 +3344,7 @@ let create = function() {
 
 }
 
-let setButtonEvent = function() {
+const setButtonEvent = function() {
     // 생성 버튼 이벤트 바인딩
     let createButton = window.document.getElementById("create");
     createButton.onclick = create;
