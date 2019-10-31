@@ -29,8 +29,11 @@ const SIGNPAD = (function() {
             // width, height 는 number 타입이어야만 함
             canvas.width = e.style.width;
             canvas.height = e.style.height;
-            canvas.style.border = "solid 1px";
+            //canvas.style.border = "solid 1px";
+            canvas.style.borderStyle = "outset";
             canvas.style.borderColor = "#319BE7";
+            canvas.style.borderSpacing = "inherit";
+            canvas.style.borderWidth = "7px";
 
             let drawing = false;
             let mousePos = { x:0, y:0 };
