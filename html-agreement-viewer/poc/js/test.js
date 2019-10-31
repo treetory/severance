@@ -3,7 +3,8 @@ import {
   createTextBox, 
   createDateTimePicker, 
   createDatePicker, 
-  createPictureBox 
+  createPictureBox, 
+  createSoapBox
 } from "./element.js";
 //'use strict';
 
@@ -122,6 +123,10 @@ let getData = (function(){
           case "img" :
             row_div = createPictureBox(e);
             horizontal_table.appendChild(row_div);
+            break;
+          case "canvas" :
+              row_div = createSoapBox(e);
+              horizontal_table.appendChild(row_div);
             break;
         };
 
@@ -500,6 +505,18 @@ let createHtmlElement = (function(){
         // 이미지 어디에 담아서 보내주는지 확인 필요
         _element.src = element.DataValue;
         break;    
+      case "MRSoapBox" :
+        _element.label = element.MRItemName;
+        _element.style.display = "table-cell";
+        _element.style.width = 300;
+        _element.style.height = 300;
+        _element.tag = "canvas";
+        _element.id = element.ControlCd;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        // 이미지 어디에 담아서 보내주는지 확인 필요
+        _element.src = element.DataValue;
+        break;
       default:
         _element = null;
         break;

@@ -1,3 +1,4 @@
+import { SIGNPAD } from "./signpad.js";
 'use strict';
 
 /**
@@ -236,21 +237,34 @@ let createPictureBox = (function(){
         cell_div.style.height = e.style.height;
         cell_div.style.padding = "10px 10px 10px 10px";
         
-        // cell 내부 좌측 label 영역
-        let left_div = document.createElement("div");
-        left_div.style.display = "inline-block";
-        left_div.style.padding = "10px 10px 10px 10px";
+        // cell 내부 위측 label 영역
+        let upper_div = document.createElement("div");
+        upper_div.style.display = "block";
+        upper_div.style.padding = "10px 10px 10px 10px";
 
         let label = document.createElement("label");
         label.innerText = e.innerText;
         label.style.height = "20px";
 
-        left_div.appendChild(label);
+        upper_div.appendChild(label);
 
-        // cell 내부 우측 input 영역
+        // cell 내부 아래측 img 영역
+        let down_div = document.createElement("div");
+        //down_div.style.display = "table-cell";
+        down_div.style.padding = "10px 10px 10px 10px";
+
+        down_div.style.display = "inline-block";
+
+        let left_div = document.createElement("div");
+        left_div.style.width = "180px";
+        left_div.style.padding = "10px 10px 10px 10px";
+        left_div.style.display = "inline-block";
+
         let right_div = document.createElement("div");
-        right_div.style.display = "table-cell";
+        right_div.style.display = "inline-block";
         right_div.style.padding = "10px 10px 10px 10px";
+        right_div.style.width = (e.style.width+20)+"px";
+        right_div.style.height = (e.style.height+20)+"px";
 
         // TODO 실제 img에 해당되는 element 가 만들어지는 부분 -> 컴포넌트 화 시킬 필요 있음
         let img = document.createElement("img");
@@ -265,8 +279,77 @@ let createPictureBox = (function(){
 
         right_div.appendChild(img);
 
-        cell_div.appendChild(left_div);
-        cell_div.appendChild(right_div);
+        down_div.appendChild(left_div);
+        down_div.appendChild(right_div);
+        
+        
+
+        cell_div.appendChild(upper_div);
+        cell_div.appendChild(down_div);
+
+        horizontal_div.appendChild(cell_div);
+
+        return horizontal_div;
+    };
+    return main;
+
+})();
+
+/**
+ * 서명패드 를 담고 있는 영역을 만든다.
+ */
+let createSoapBox = (function(){
+
+    let main = function(e) {
+
+        // row 영역
+        let horizontal_div = document.createElement("div");
+        horizontal_div.style.display = "table-row";
+        horizontal_div.style.width = "100%";
+        horizontal_div.style.height = "100%";
+        
+        // cell 영역
+        let cell_div = document.createElement("div");
+        cell_div.id = "DIV_"+e.id;
+        cell_div.style.display = "100%";
+        cell_div.style.height = "100%";
+        cell_div.style.padding = "10px 10px 10px 10px";
+        
+        // cell 내부 위측 label 영역
+        let upper_div = document.createElement("div");
+        upper_div.style.display = "block";
+        upper_div.style.padding = "10px 10px 10px 10px";
+
+        let label = document.createElement("label");
+        label.innerText = e.label;
+        label.style.height = "20px";
+
+        upper_div.appendChild(label);
+
+        // cell 내부 아래측 canvas 영역
+        let down_div = document.createElement("div");
+        down_div.style.display = "inline-block";
+
+        let left_div = document.createElement("div");
+        left_div.style.width = "180px";
+        left_div.style.padding = "10px 10px 10px 10px";
+        left_div.style.display = "inline-block";
+
+        let right_div = document.createElement("div");
+        right_div.style.display = "inline-block";
+        right_div.style.padding = "10px 10px 10px 10px";
+        right_div.style.width = (e.style.width+20)+"px";
+        right_div.style.height = (e.style.height+20)+"px";
+
+        // TODO 실제 서명패드 해당되는 element 가 만들어지는 부분 -> 컴포넌트 화 시킬 필요 있음
+        let canvas = new SIGNPAD(e, right_div);
+        //console.log(canvas);
+
+        down_div.appendChild(left_div);
+        down_div.appendChild(right_div);
+
+        cell_div.appendChild(upper_div);
+        cell_div.appendChild(down_div);
 
         horizontal_div.appendChild(cell_div);
 
@@ -281,5 +364,6 @@ export {
     createTextBox, 
     createDateTimePicker, 
     createDatePicker, 
-    createPictureBox 
+    createPictureBox ,
+    createSoapBox
 };
