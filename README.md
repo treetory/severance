@@ -8,12 +8,12 @@
 
     ```
 	location / {
-        root   	**_{D:\\dev-repo\\treetory\\severance\\html-agreement-viewer\\poc;}_**
-        index	**poc.html;**
+        root   	{D:\\dev-repo\\treetory\\severance\\html-agreement-viewer\\poc;}
+        index	poc.html;
     }
 
 	location / {
-        proxy_pass 	**_http://localhost:8080/sample;_**
+        proxy_pass 	http://localhost:8080/sample;
     }
 	```
 
@@ -38,3 +38,16 @@
 | `QQ Browser` | Not Supported
 | `Baidu Browser` | Not Supported
 | `KaiOS Browser` | Not Supported
+
+4. select box 선택 시, severance-agreeent-sample-data 서버 인스턴스가 살아있으면 httpRequest를 이용하여 sample data를 가져오고, 죽어있으면 (502) 스크립트 코드 내부에 선언된 전역변수를 sample data로 사용하여 렌더링 테스트를 진행한다.
+
+# **severance-agreeent-sample-data** : Proof of Concept 진행을 위한 샘플 데이터 내려주는 테스트 서버
+
+1. Spring-Boot 로 아주 단순하게 작성했음
+
+2. RestController 에 Mapping 된 request URL 도 딱 한개임.
+
+3. 상기 [html-agreement-viewer] 에서 선택한 값을 바탕으로 해당 값에 대응하는 파일명으로 되어있는 json 파일 읽은 후, json response 던져주는 방식으로 작성됨.
+
+4. 상기 [html-agreement-viewer] 에서 CORS 를 피하기 위해 nginx.conf에 proxy_pass 설정해 줄 것.
+
