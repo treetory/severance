@@ -51,3 +51,7 @@
 
 4. 상기 [html-agreement-viewer] 에서 CORS 를 피하기 위해 nginx.conf에 proxy_pass 설정해 줄 것.
 
+5. swagger 사용하여 api test 가능
+	```
+	http://localhost:18989/api/swagger-ui.html
+	```
