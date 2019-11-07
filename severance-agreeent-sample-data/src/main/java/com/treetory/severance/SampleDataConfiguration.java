@@ -1,7 +1,9 @@
 package com.treetory.severance;
 
 import com.google.gson.Gson;
-import org.springframework.beans.factory.InitializingBean;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +13,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.resource.PathResourceResolver;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -28,6 +29,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableAsync
 @Configuration
 public class SampleDataConfiguration implements ApplicationListener<ApplicationEvent>, WebMvcConfigurer {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SampleDataConfiguration.class);
+
     @Bean(name = "gson")
     public Gson gson() {
         return new Gson();
@@ -39,6 +43,7 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
     @Override
     @Description("Every resources for requesting from view is registerd in here.")
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
         /**
          * swagger-ui 의 웹 리소스를 찾을 수 있도록 리소스 핸들러에 리소스 경로와 위치를 등록한다.
          */
@@ -47,6 +52,15 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
 
         registry.addResourceHandler("/api/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        /**
+         * JSON 파일 위치
+         */
+        registry
+                .addResourceHandler("/formJSON/**")
+                .addResourceLocations("file:./form-json/")
+                .setCachePeriod(300);
+
     }
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -61,6 +75,27 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
     }
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
+        /*
+        StringBuffer sb = new StringBuffer();
+        sb.append("*************************************************************************");
+        sb.append(System.lineSeparator());
+        sb.append("#     #                                                                                                                   ###                                              ");
+        sb.append(System.lineSeparator());
+        sb.append("#  #  # ###### #       ####   ####  #    # ######    #####  ####     ##### #####  ###### ###### #####  ####  #####  #   # ###  ####     #    #  ####  #####  #      #####  ");
+        sb.append(System.lineSeparator());
+        sb.append("#  #  # #      #      #    # #    # ##  ## #           #   #    #      #   #    # #      #        #   #    # #    #  # #   #  #         #    # #    # #    # #      #    # ");
+        sb.append(System.lineSeparator());
+        sb.append("#  #  # #####  #      #      #    # # ## # #####       #   #    #      #   #    # #####  #####    #   #    # #    #   #   #    ####     #    # #    # #    # #      #    # ");
+        sb.append(System.lineSeparator());
+        sb.append("#  #  # #      #      #      #    # #    # #           #   #    #      #   #####  #      #        #   #    # #####    #            #    # ## # #    # #####  #      #    # ");
+        sb.append(System.lineSeparator());
+        sb.append("#  #  # #      #      #    # #    # #    # #           #   #    #      #   #   #  #      #        #   #    # #   #    #       #    #    ##  ## #    # #   #  #      #    # ");
+        sb.append(System.lineSeparator());
+        sb.append(" ## ##  ###### ######  ####   ####  #    # ######      #    ####       #   #    # ###### ######   #    ####  #    #   #        ####     #    #  ####  #    # ###### #####  ");
+        sb.append(System.lineSeparator());
+        sb.append("*************************************************************************");
 
+        LOG.info("{}{}{}", System.lineSeparator(), sb.toString(), System.lineSeparator());
+        */
     }
 }

@@ -10,8 +10,10 @@
     <div style="display: table-row; padding: 2px 2px 2px 2px;">
         <div style="display: table-cell; padding: 1px 1px 1px 1px; width: 85%;">
             <select id="fileName" style="width: 100%; height: 100%;">
+                <!--
                 <option value="data1">MRI비급여 동의서 양식</option>
                 <option value="data2">마취 동의서 양식</option>
+                -->
             </select>
         </div>
         <div style="display: table-cell; padding: 1px 1px 1px 1px; min-width: 88px; text-align: center; ">
@@ -28,11 +30,13 @@
 <script type="module" src="/js/poc.js"></script>
 <script type="module">
 
-    import { create, setButtonEvent } from "./js/poc.js";
+    import { create, setConsentFormList, setButtonEvent } from "./js/poc.js";
 
     window.onload = function(e) {
+        setConsentFormList();
         // 화면 이벤트 생성
         setButtonEvent();
+
     };
 
     window.onunload = function(e) {

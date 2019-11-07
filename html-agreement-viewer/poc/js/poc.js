@@ -3308,15 +3308,21 @@ const create = function() {
     let fileName = e.options[e.selectedIndex].value;
 
     // CORS 때문에 동일한 웹서버에 위치한 경로로 호출해야 한다.
-    let requestURL = "/sample/"+fileName;
+    let requestURL = "/sample/data/"+fileName;
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let result = JSON.parse(xhr.responseText);
-                getData(result); 
+                //console.log(typeof result);
+                switch (typeof result) {
+                    case "string":  alert(result);                              break;
+                    case "object":  getData(result);                            break;
+                    default:        alert("알 수 없는 유형의 데이터입니다.");      break;
+                }
             } else {  
                 let _items = [];
+                /*
                 switch (fileName) {
                     case "data1" :  
                         _items = data1.Regions[0].VisualTree.Items;
@@ -3325,6 +3331,7 @@ const create = function() {
                         _items = data2.Regions[0].VisualTree.Items;
                         break;
                 };
+                */
                 if (_items.length > 0) {
                     getData(_items);
                 } else {
@@ -3355,4 +3362,42 @@ const setButtonEvent = function() {
     createButton.onclick = create;
 }
 
-export { create, setButtonEvent }
+const setConsentFormList = function() {
+    // CORS 때문에 동일한 웹서버에 위치한 경로로 호출해야 한다.
+    let requestURL = "/sample/list";
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(e) { 
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                let result = JSON.parse(xhr.responseText);
+                //console.log(typeof result);
+                if (result.length > 0) {
+                    setConsentFormListToSelectBox(result);
+                }
+            }
+        };        
+    };
+    xhr.onprogress = function(e) { /*console.log(e);*/ };
+    xhr.onabort = function(e) { /*console.log(e);*/	};
+    xhr.ontimeout = function(e) { /*console.log(e);*/ };
+    xhr.open('GET', requestURL, true);
+    xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
+    xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
+    xhr.send();
+}
+
+const setConsentFormListToSelectBox = (function(){
+    let _execute = function(array) {
+        let _selectBox = document.getElementById("fileName");
+        array.forEach(element => {
+            let _option = document.createElement("option");
+            _option.id = element.FrmCd;
+            _option.value = element.FrmCd;
+            _option.innerHTML = element.FrmDescription;
+            _selectBox.appendChild(_option);
+        });
+    };
+    return _execute;
+})();
+
+export { create, setButtonEvent, setConsentFormList }
