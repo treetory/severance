@@ -3322,7 +3322,6 @@ const create = function() {
                 }
             } else {  
                 let _items = [];
-                /*
                 switch (fileName) {
                     case "data1" :  
                         _items = data1.Regions[0].VisualTree.Items;
@@ -3331,7 +3330,6 @@ const create = function() {
                         _items = data2.Regions[0].VisualTree.Items;
                         break;
                 };
-                */
                 if (_items.length > 0) {
                     getData(_items);
                 } else {
@@ -3374,6 +3372,8 @@ const setConsentFormList = function() {
                 if (result.length > 0) {
                     setConsentFormListToSelectBox(result);
                 }
+            } else {
+                setConsentFormListToSelectBox([{"FrmCd" : "data1", "FrmDescription" : "MRI비급여 동의서 양식"}, {"FrmCd" : "data2", "FrmDescription" : "마취 동의서 양식"}]);
             }
         };        
     };
