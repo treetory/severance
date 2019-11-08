@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value="/sample")
@@ -24,6 +28,9 @@ public class SampleDataController {
 
     @Autowired
     private Gson gson;
+
+    @Autowired
+    private FileStorageProperties fileStorageProperties;
 
     @RequestMapping(value="/list",
             method= RequestMethod.GET,
@@ -36,13 +43,27 @@ public class SampleDataController {
 
         try {
 
-            File f = new File("./form-json/ConsentFormList.json");
+            File consentFormFile = new File("./form-json/ConsentFormList.json");
+            ArrayList<Map<String, String>> list = new ArrayList<>();
+            if (consentFormFile.exists()) {
+                list = gson.fromJson(
+                        new BufferedReader(
+                                new InputStreamReader(new FileInputStream("./form-json/ConsentFormList.json"), "UTF-8")),
+                        ArrayList.class);
+            }
 
-            ArrayList<Map<String, String>> list = gson.fromJson(
-                    new BufferedReader(
-                            new InputStreamReader(new FileInputStream("./form-json/ConsentFormList.json"), "UTF-8")),
-                    ArrayList.class);
-            result = Either.right(list);
+            File uploadDir = new File(fileStorageProperties.getUploadDir());
+
+            ArrayList<Map<String, String>> mergedList = (ArrayList<Map<String, String>>) list.stream().map(form -> {
+                //LOG.debug(">>> {}", form);
+                if (Arrays.asList(uploadDir.list()).stream().filter(s -> s.contains(form.get("FrmCd"))).findAny().isPresent()) {
+                    //LOG.debug("--- {}", _opt);
+                    form.put("color", "#0000FF");
+                }
+                return form;
+            }).collect(Collectors.toList());
+
+            result = Either.right(mergedList);
 
         } catch (Exception e) {
             LOGPrint.printException(e, this.getClass());

@@ -129,6 +129,7 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
          * upload page 주소를 등록한다.
          */
         registry.addViewController("/upload").setViewName("upload.html");
+        registry.addViewController("/poc").setViewName("poc.html");
     }
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
