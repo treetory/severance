@@ -69,3 +69,13 @@
 8. 상기 위에 이식된 부분에서 동의서 목록도 제공받은 json 파일에서 생성할 수 있도록 기능 추가함. 그리고 업로드된 것이 있으면 select box 의 옵션 값이 파란색, bold 로 표현되도록 기능 추가함.
 
 9. 파일 업로드 한 것이 위치하는 target 경로는 application.properties 에 기술해 놓았음.
+
+# **webviewtest** : POC 진행 샘플 코드가 webview 환경에서 돌아갈 때의 모습을 시연하기 위한 test android app
+
+1. Fragment view 를 이용했음.
+
+2. HomeFragment 에 webview 를 얹었음.
+
+3. ENTRY_URL 에 테스트 해야할 웹 컨텐츠 주소를 입력 후, 실행 또는 앱 패키지를 말아서 폰에 설치하여 테스트할 것.
+
+4. 단순히 컨텐츠가 로드되는 모습만 확인하기 위해 만든 것이므로 다른 기능은 없음.
