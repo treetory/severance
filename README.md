@@ -55,3 +55,17 @@
 	```
 	http://localhost:18989/api/swagger-ui.html
 	```
+
+6. json 파일 upload 기능 추가
+	```
+	http://localhost:18989/upload
+	```
+	
+7. nginx 에서 돌리던 [html-agreement-viewer] 를 Spring-Boot 안에 이식함.
+	```
+	http://localhost:18989/poc
+	```
+	
+8. 상기 위에 이식된 부분에서 동의서 목록도 제공받은 json 파일에서 생성할 수 있도록 기능 추가함. 그리고 업로드된 것이 있으면 select box 의 옵션 값이 파란색, bold 로 표현되도록 기능 추가함.
+
+9. 파일 업로드 한 것이 위치하는 target 경로는 application.properties 에 기술해 놓았음.
