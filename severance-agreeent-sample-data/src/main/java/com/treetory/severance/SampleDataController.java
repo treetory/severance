@@ -45,10 +45,7 @@ public class SampleDataController {
             result = Either.right(list);
 
         } catch (Exception e) {
-            LOG.error("{}{}    [{}]{}    [{}]{}", 
-            System.lineSeparator(), System.lineSeparator(), 
-            String.format("%s.%s(%d)", e.getStackTrace()[1].getClassName(), e.getStackTrace()[1].getMethodName(), e.getStackTrace()[1].getLineNumber()), System.lineSeparator(),
-            e.getMessage(), System.lineSeparator());
+            LOGPrint.printException(e, this.getClass());
             result = Either.left(String.format("Exception is occurred when read json file or parse json file."));
         }
 
@@ -76,10 +73,7 @@ public class SampleDataController {
             result = Either.right((ArrayList)((Map)((Map)((ArrayList)_temp.get("Regions")).get(0)).get("VisualTree")).get("Items"));
 
         } catch (Exception e) {
-            LOG.error("{}{}    [{}]{}    [{}]{}", 
-            System.lineSeparator(), System.lineSeparator(), 
-            String.format("%s.%s(%d)", e.getStackTrace()[1].getClassName(), e.getStackTrace()[1].getMethodName(), e.getStackTrace()[1].getLineNumber()), System.lineSeparator(),
-            e.getMessage(), System.lineSeparator());
+            LOGPrint.printException(e, this.getClass());
             result = Either.left(String.format("Exception is occurred when read json file or parse json file."));
         }
 

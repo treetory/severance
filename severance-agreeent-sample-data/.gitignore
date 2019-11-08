@@ -7,6 +7,7 @@ mvnw.cmd
 !.mvn/wrapper/MavenWrapperDownloader.java
 !**/src/main/**
 !**/src/test/**
+uploads/
 
 ### STS ###
 .apt_generated

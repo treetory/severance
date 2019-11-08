@@ -2,17 +2,27 @@ package com.treetory.severance;
 
 import com.google.gson.Gson;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.resource.PathResourceResolver;
+import org.thymeleaf.spring5.ISpringTemplateEngine;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+import org.thymeleaf.templateresolver.ITemplateResolver;
+
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -27,11 +37,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @EnableSwagger2
 @EnableAsync
+@EnableConfigurationProperties({FileStorageProperties.class})
 @Configuration
 public class SampleDataConfiguration implements ApplicationListener<ApplicationEvent>, WebMvcConfigurer {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SampleDataConfiguration.class);
-
+    @Autowired
+    private WebApplicationContext appContext;
+    
     @Bean(name = "gson")
     public Gson gson() {
         return new Gson();
@@ -39,6 +51,37 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any()).paths(PathSelectors.any()).build();
+    }
+    @Bean(name = "templateResolver")
+    @Description("Thymeleaf template resolver serving HTML")
+    public ITemplateResolver templateResolver() {
+        // SpringResourceTemplateResolver automatically integrates with Spring's own
+        // resource resolution infrastructure, which is highly recommended.
+        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+        templateResolver.setPrefix("templates/");
+        templateResolver.setSuffix(".html");
+        // HTML is the default value, added here for the sake of clarity.
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
+        // Template cache is true by default. Set to false if you want
+        // templates to be automatically updated when modified.
+        templateResolver.setCacheable(false);
+        return templateResolver;
+    }
+    @Bean(name = "templateEngine")
+    @Description("Thymeleaf template engine with Spring integration")
+    public ISpringTemplateEngine templateEngine() {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver((ITemplateResolver)appContext.getBean("templateResolver"));
+        return templateEngine;
+    }
+    @Bean(name = "thymeleafViewResolver")
+    @Description("Thymeleaf view resolver")
+    public ViewResolver thymeleafViewResolver() {
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setCharacterEncoding("UTF-8");
+        viewResolver.setTemplateEngine((ISpringTemplateEngine)appContext.getBean("templateEngine"));
+        return viewResolver;
     }
     @Override
     @Description("Every resources for requesting from view is registerd in here.")
@@ -61,6 +104,16 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
                 .addResourceLocations("file:./form-json/")
                 .setCachePeriod(300);
 
+        /**
+         * 
+         */
+        registry
+                .addResourceHandler("/css/**", "/js/**")
+                .addResourceLocations("classpath:/static/css/", "classpath:/static/js/")
+                .setCachePeriod(600)
+                .resourceChain(true)
+                .addResolver(new PathResourceResolver());
+
     }
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -72,6 +125,10 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
         registry.addRedirectViewController("/api/swagger-resources/configuration/ui", "/swagger-resources/configuration/ui");
         registry.addRedirectViewController("/api/swagger-resources/configuration/security", "/swagger-resources/configuration/security");
         registry.addRedirectViewController("/api/swagger-resources", "/swagger-resources");
+        /**
+         * upload page 주소를 등록한다.
+         */
+        registry.addViewController("/upload").setViewName("upload.html");
     }
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
