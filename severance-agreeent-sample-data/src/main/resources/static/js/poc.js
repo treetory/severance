@@ -3367,10 +3367,7 @@ const setConsentFormList = function() {
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                //console.log(xhr.responseText);
                 let result = JSON.parse(xhr.responseText);
-                console.log(result);
-                //console.log(typeof result);
                 if (result.length > 0) {
                     setConsentFormListToSelectBox(result);
                 }
