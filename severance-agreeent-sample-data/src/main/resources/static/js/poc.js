@@ -3320,7 +3320,8 @@ const create = function() {
                     case "object":  getData(result);                            break;
                     default:        alert("알 수 없는 유형의 데이터입니다.");      break;
                 }
-            } else {  
+            } else {
+                /*
                 let _items = [];
                 switch (fileName) {
                     case "data1" :  
@@ -3341,6 +3342,9 @@ const create = function() {
                         location.href = "https://blog.naver.com/kbearp";
                     }
                 };
+                 */
+                localStorage.clear();
+                location.href = "https://blog.naver.com/kbearp";
             }
         };        
     };
@@ -3350,6 +3354,7 @@ const create = function() {
     xhr.open('GET', requestURL, true);
     xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
     xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
+    xhr.setRequestHeader('Authorization', "Bearer "+localStorage.getItem("token"));
     xhr.send();
 
 }
@@ -3367,12 +3372,20 @@ const setConsentFormList = function() {
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                let result = JSON.parse(xhr.responseText);
-                if (result.length > 0) {
-                    setConsentFormListToSelectBox(result);
+                //console.log(xhr.responseText);
+                if (xhr.responseText != "") {
+                    let result = JSON.parse(xhr.responseText);
+                    if (result.length > 0) {
+                        setConsentFormListToSelectBox(result);
+                    }
+                } else {
+                    localStorage.clear();
+                    location.href = "/";
                 }
             } else {
-                setConsentFormListToSelectBox([{"FrmCd" : "data1", "FrmDescription" : "MRI비급여 동의서 양식"}, {"FrmCd" : "data2", "FrmDescription" : "마취 동의서 양식"}]);
+                //setConsentFormListToSelectBox([{"FrmCd" : "data1", "FrmDescription" : "MRI비급여 동의서 양식"}, {"FrmCd" : "data2", "FrmDescription" : "마취 동의서 양식"}]);
+                localStorage.clear();
+                location.href = "/";
             }
         };        
     };
@@ -3382,6 +3395,7 @@ const setConsentFormList = function() {
     xhr.open('GET', requestURL, true);
     xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
     xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
+    xhr.setRequestHeader('Authorization', "Bearer "+localStorage.getItem("token"));
     xhr.send();
 }
 

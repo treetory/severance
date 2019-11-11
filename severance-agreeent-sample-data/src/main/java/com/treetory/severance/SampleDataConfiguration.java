@@ -1,5 +1,6 @@
 package com.treetory.severance;
 
+import com.auth0.jwt.JWT;
 import com.google.gson.Gson;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Description;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -37,13 +39,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @EnableSwagger2
 @EnableAsync
-@EnableConfigurationProperties({FileStorageProperties.class})
+@EnableConfigurationProperties({FileStorageProperties.class, UserCredentialProperties.class})
 @Configuration
 public class SampleDataConfiguration implements ApplicationListener<ApplicationEvent>, WebMvcConfigurer {
 
     @Autowired
     private WebApplicationContext appContext;
-    
+
+    @Bean(name = "JWT")
+    public static final JWT JWT() {
+        JWT jwt = new JWT();
+        return new JWT();
+    }
     @Bean(name = "gson")
     public Gson gson() {
         return new Gson();
@@ -120,17 +127,33 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
         /**
          * swagger-ui 의 url path 의 redirect 주소를 등록한다.
          */
-        registry.addRedirectViewController("/", "/api/swagger-ui.html");
+        registry.addRedirectViewController("/api", "/api/swagger-ui.html");
         registry.addRedirectViewController("/api/v2/api-docs", "/v2/api-docs");
         registry.addRedirectViewController("/api/swagger-resources/configuration/ui", "/swagger-resources/configuration/ui");
         registry.addRedirectViewController("/api/swagger-resources/configuration/security", "/swagger-resources/configuration/security");
         registry.addRedirectViewController("/api/swagger-resources", "/swagger-resources");
         /**
-         * upload page 주소를 등록한다.
+         * upload, poc, login page 주소를 등록한다.
          */
         registry.addViewController("/upload").setViewName("upload.html");
         registry.addViewController("/poc").setViewName("poc.html");
+        registry.addViewController("/").setViewName("index.html");
     }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new AuthInterceptor())
+                .excludePathPatterns("/")
+                .excludePathPatterns("/poc")
+                .excludePathPatterns("/login")
+                .excludePathPatterns("/upload")
+                .excludePathPatterns("/js/*")
+                .excludePathPatterns("/css/*")
+                .excludePathPatterns("/favicon.ico")
+                .excludePathPatterns("/error")
+                ;
+    }
+
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
         /*

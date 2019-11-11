@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +36,7 @@ public class SampleDataController {
             //consumes = {MediaType.APPLICATION_JSON_VALUE },
             produces = {MediaType.APPLICATION_JSON_VALUE }
     )
-    public String getList() {
+    public String getList(HttpServletRequest request) {
 
         Either<String, ArrayList> result = null;
 
@@ -76,7 +77,7 @@ public class SampleDataController {
             //consumes = {MediaType.APPLICATION_JSON_VALUE },
             produces = {MediaType.APPLICATION_JSON_VALUE }
     )
-    public String getData(@PathVariable String path) {
+    public String getData(HttpServletRequest request, @PathVariable String path) {
 
         Either<String, ArrayList> result = null;
 
