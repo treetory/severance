@@ -6,7 +6,8 @@ import {
   createPictureBox, 
   createSoapBox,
   createCheckBox,
-  createRadio
+  createRadio,
+  createAttrNameBox
 } from "./element.js";
 //'use strict';
 
@@ -86,9 +87,7 @@ const getData = (function(){
     let _execute = function(array) {
 
       // 밑에서 recursive 하게 돌면서 빨아들이게 하다 보니, 원본 데이터에 문제 발생
-      //let _items = sort(obj.Regions[0].VisualTree.Items);
       let _items = sort(array);
-      //let result = aggregate(items);
       let _aggregation = aggregate(_items);
       let _result = createHtmlElement(_aggregation);
 
@@ -109,8 +108,13 @@ const getData = (function(){
           case "input" : 
             switch (e.type) {
               case "text" : 
-                row_div = createTextBox(e);
-                horizontal_table.appendChild(row_div);
+                if (e.hasOwnProperty("button")) {
+                  row_div = createAttrNameBox(e);
+                  horizontal_table.appendChild(row_div);
+                } else {
+                  row_div = createTextBox(e);
+                  horizontal_table.appendChild(row_div);
+                }
                 break;
               case "datetime" : 
                 row_div = createDateTimePicker(e);
@@ -176,22 +180,41 @@ const aggregate = (function() {
      */
     let __makeElement = function(cur, element, acc) {
       
-      element.FrmKey = cur.FrmKey;
-      element.MRItemKey = cur.MRItemKey;
-      element.MRAttributeKey = cur.MRAttributeKey;
-      element.MRitCd = cur.MRitCd;
-      element.AttrCd = cur.AttrCd;
-      element.ControlCd = cur.ControlCd;
-      element.LabelCd = cur.LabelCd;
-      element.Position_X = cur.Position_X;
-      element.Position_Y = cur.Position_Y;
-      element.MRItemType = cur.MRItemType;
-      element.MRItemName = cur.MRItemName;
-      element.MrContNm = cur.MrContNm;
-      element.TextValue = cur.TextValue;
-      element.DataValue = cur.DataValue;
-      element.Rank = cur.Rank;
-
+      element.FrmKey = cur.hasOwnProperty("FrmKey") == false ? null : cur.FrmKey;
+      element.MRItemKey = cur.hasOwnProperty("MRItemKey") == false ? null : cur.MRItemKey;
+      element.MRAttributeKey = cur.hasOwnProperty("MRAttributeKey") == false ? null : cur.MRAttributeKey;
+      element.MRitCd = cur.hasOwnProperty("MRitCd") == false ? null : cur.MRitCd;
+      element.AttrCd = cur.hasOwnProperty("AttrCd") == false ? null : cur.AttrCd;
+      element.ControlCd = cur.hasOwnProperty("ControlCd") == false ? null : cur.ControlCd;
+      element.LabelCd = cur.hasOwnProperty("LabelCd") == false ? null : cur.LabelCd;
+      element.Position_X = cur.hasOwnProperty("Position_X") == false ? null : cur.Position_X;
+      element.Position_Y = cur.hasOwnProperty("Position_Y") == false ? null : cur.Position_Y;
+      element.MRItemType = cur.hasOwnProperty("MRItemType") == false ? null : cur.MRItemType;
+      element.MRItemName = cur.hasOwnProperty("MRItemName") == false ? null : cur.MRItemName;
+      element.MrContNm = cur.hasOwnProperty("MrContNm") == false ? null : cur.MrContNm;
+      element.TextValue = cur.hasOwnProperty("TextValue") == false ? null : cur.TextValue;
+      element.DataValue = cur.hasOwnProperty("DataValue") == false ? null : cur.DataValue;
+      element.Rank = cur.hasOwnProperty("Rank") == false ? null : cur.Rank;
+      element.InsType = cur.hasOwnProperty("InsType") == false ? null : cur.InsType;
+      element.IsRequired = cur.hasOwnProperty("IsRequired") == false ? null : cur.IsRequired;
+      element.QcMgtYn = cur.hasOwnProperty("QcMgtYn") == false ? null : cur.QcMgtYn;
+      element.Width = cur.hasOwnProperty("Width") == false ? null : cur.Width;
+      element.Height = cur.hasOwnProperty("Height") == false ? null : cur.Height;
+      element.Image = cur.hasOwnProperty("Image") == false ? null : cur.Image;
+      if (cur.hasOwnProperty("RefImages")) {
+        if (cur.RefImages.length > 0) {
+          element.ResultImage = cur.RefImages[0].ResultImage;
+        }
+      }
+      if (cur.hasOwnProperty("TextInfo")) {
+        if (cur.TextInfo != undefined || cur.TextInfo != null) {
+          element.Button.ButtonAction = (cur.TextInfo).hasOwnProperty("ButtonAction") == false ? null : cur.TextInfo.ButtonAction;
+          element.Button.ButtonName = (cur.TextInfo).hasOwnProperty("ButtonName") == false ? null : cur.TextInfo.ButtonName;
+          element.Button.MaxLength = (cur.TextInfo).hasOwnProperty("MaxLength") == false ? null : cur.TextInfo.MaxLength;
+          element.Button.MultiLnYn = (cur.TextInfo).hasOwnProperty("MultiLnYn") == false ? null : cur.TextInfo.MultiLnYn;
+        }
+      }
+      
       return element;
     };
 
@@ -288,6 +311,7 @@ const aggregate = (function() {
      * @param {*} acc       : 같은 그룹끼리 묶어서 생성한 element object 를 누적시켜 쌓아놓을 accumulator array
      */
     let __getMRSoapBox = function (cur, element, acc) {
+      //console.log(cur);
       acc.push(__makeElement(cur, element, acc));
       return acc;
     };
@@ -330,6 +354,12 @@ const aggregate = (function() {
       return acc;
     };
 
+    let __getMRAttrNameBox = function (cur, element, acc) {
+      //console.log(cur);
+      acc.push(__makeElement(cur, element, acc));
+      return acc;
+    }
+
     /**
      * 현재 closure scope 의 동작을 담당하는 main 함수
      * @param {*} item  : acc 에 객체 모양을 정제하여 넣어야 할 대상 item
@@ -356,7 +386,18 @@ const aggregate = (function() {
         "DataValue": "",
         "Rank": -1,
         "Events": [],
-        "Options" : []
+        "Options" : [],
+        "InsType" : "",
+        "IsRequired" : false,
+        "QcMgtYn" : null,
+        "Width" : 0,
+        "Image" : null,
+        "Button" : {
+          "ButtonAction" : null,
+          "ButtonName" : null,
+          "MaxLength" : -1,
+          "MultiLnYn" : null
+        }
       };
 
       /**
@@ -384,6 +425,10 @@ const aggregate = (function() {
         case "MRDatePicker"     : acc = __getMRDatePicker(item, element, acc);            break;
         case "MRPictureBox"     : acc = __getMRPictureBox(item, element, acc);            break;
         case "MRSoapBox"        : acc = __getMRSoapBox(item, element, acc);               break;
+        case "MRAttrNameBox"    : acc = __getMRAttrNameBox(item, element, acc);           break;
+        default:
+          console.log(item);
+          break;
       };
 
       return acc;
@@ -400,7 +445,7 @@ const aggregate = (function() {
   let main = function(items, acc = []) {
 
     let _items = items;
-
+    
     if (_items.length == 0) {
       // 전체 아이템을 순회한 후 정제된 acc 를 반환한다.
       /*
@@ -453,7 +498,13 @@ const createHtmlElement = (function(){
       "readonly" : false,
       "disabled" : false,
       "checked" : false,
-      "options" : []
+      "options" : [],
+      "button" : {
+        "action" : null,
+        "name" : null,
+        "maxLength" : -1,
+        "multiLnYn" : null
+      }
     };
     
     switch (element.MRItemType) {
@@ -505,7 +556,8 @@ const createHtmlElement = (function(){
         break;
       case "MRPictureBox" :
         _element.style.display = "table-cell";
-        delete _element.style.width;
+        //delete _element.style.width;
+        _element.style.width = element.Width;
         _element.style.height = "100%";
         _element.innerText = element.MRItemName;
         _element.tag = "img";
@@ -513,19 +565,19 @@ const createHtmlElement = (function(){
         _element.class = element.MRItemKey;
         _element.style.paddingLeft = element.Position_X+"px";
         // 이미지 어디에 담아서 보내주는지 확인 필요
-        _element.src = element.DataValue;
+        _element.src = element.Image;
         break;    
       case "MRSoapBox" :
         _element.label = element.MRItemName;
         _element.style.display = "table-cell";
-        _element.style.width = 300;
-        _element.style.height = 300;
+        _element.style.width = element.Width;
+        _element.style.height = element.Height;
         _element.tag = "canvas";
         _element.id = element.ControlCd;
         _element.class = element.MRItemKey;
         _element.style.paddingLeft = element.Position_X+"px";
         // 이미지 어디에 담아서 보내주는지 확인 필요
-        _element.src = element.DataValue;
+        _element.src = element.ResultImage;
         break;
       case "MRRadioBox" : 
         _element.style.display = "table-cell";
@@ -551,6 +603,22 @@ const createHtmlElement = (function(){
         _element.style.paddingLeft = element.Position_X+"px";
         _element.options = element.Options;
         break;
+      case "MRAttrNameBox" :
+        _element.style.display = "table-cell";
+        delete _element.style.width;
+        _element.style.height = "100%";
+        _element.innerText = element.MRItemName;
+        _element.tag = "input";
+        _element.type = "text";
+        _element.id = element.MRItemKey;
+        _element.class = element.MRItemKey;
+        _element.style.paddingLeft = element.Position_X+"px";
+        _element.value = (element.TextValue == undefined || element.TextValue == null ? "" : element.TextValue);
+        _element.button.action = element.Button.ButtonAction;
+        _element.button.name = element.Button.ButtonName;
+        _element.button.maxLength = element.Button.MaxLength;
+        _element.button.multiLnYn = element.Button.MultiLnYn;
+        break;  
       default:
         _element = null;
         break;
