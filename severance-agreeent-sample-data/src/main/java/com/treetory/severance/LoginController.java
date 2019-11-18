@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * LoginController using JWT
+ *
+ * @author treetory@gmail.com
+ */
 @RestController
 public class LoginController {
 
@@ -22,6 +27,11 @@ public class LoginController {
     @Autowired
     private Gson gson;
 
+    /**
+     *
+     * @param user (userId, password)
+     * @return String (JWT token and the view page name to redirect)
+     */
     @RequestMapping(value="/login",
             method= RequestMethod.POST,
             produces = {MediaType.APPLICATION_JSON_VALUE }

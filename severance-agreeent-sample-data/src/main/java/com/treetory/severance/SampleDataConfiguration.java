@@ -13,10 +13,7 @@ import org.springframework.context.annotation.Description;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.thymeleaf.spring5.ISpringTemplateEngine;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -32,7 +29,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- *  Configuration class which enables Swagger
+ *  Configuration class
  *
  * @author treetory@gmail.com
  *
@@ -91,6 +88,10 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
         return viewResolver;
     }
     @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.viewResolver((ViewResolver) appContext.getBean("thymeleafViewResolver"));
+    }
+    @Override
     @Description("Every resources for requesting from view is registerd in here.")
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
@@ -111,16 +112,6 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
                 .addResourceLocations("file:./form-json/")
                 .setCachePeriod(300);
 
-        /**
-         * 
-         */
-        registry
-                .addResourceHandler("/css/**", "/js/**")
-                .addResourceLocations("classpath:/static/css/", "classpath:/static/js/")
-                .setCachePeriod(600)
-                .resourceChain(true)
-                .addResolver(new PathResourceResolver());
-
     }
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -132,25 +123,26 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
         registry.addRedirectViewController("/api/swagger-resources/configuration/ui", "/swagger-resources/configuration/ui");
         registry.addRedirectViewController("/api/swagger-resources/configuration/security", "/swagger-resources/configuration/security");
         registry.addRedirectViewController("/api/swagger-resources", "/swagger-resources");
-        /**
-         * upload, poc, login page 주소를 등록한다.
-         */
-        registry.addViewController("/upload").setViewName("upload.html");
-        registry.addViewController("/poc").setViewName("poc.html");
-        registry.addViewController("/").setViewName("index.html");
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new AuthInterceptor())
+                /**
+                 *  page redirect 처리하는 경우는 header 에 authorization token 을 담을 수 없다.
+                 *  파라미터로 넘겨야만 한다.
+                 *  그러므로 auth check 를 하는 interceptor 에서 페이지 이동 URL 패턴을 제외시킨다.
+                 */
                 .excludePathPatterns("/")
                 .excludePathPatterns("/poc")
-                .excludePathPatterns("/login")
                 .excludePathPatterns("/upload")
+                .excludePathPatterns("/error")
+                // REST API URL
+                .excludePathPatterns("/login")
+                // Static Resource Path
                 .excludePathPatterns("/js/*")
                 .excludePathPatterns("/css/*")
                 .excludePathPatterns("/favicon.ico")
-                .excludePathPatterns("/error")
                 ;
     }
 

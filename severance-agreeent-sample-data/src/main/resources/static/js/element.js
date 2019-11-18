@@ -1,3 +1,6 @@
+/**
+ * @author treetory@gmail.com
+ */
 import { SIGNPAD } from "./signpad.js";
 'use strict';
 

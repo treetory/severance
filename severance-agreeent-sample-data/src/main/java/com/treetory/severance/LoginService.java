@@ -12,6 +12,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * issue the JWT authorization token
+ *
+ * @author treetory@gmail.com
+ */
 @Service
 public class LoginService {
 
@@ -25,7 +30,7 @@ public class LoginService {
 
     public Either<String, Map<String, String>> generateToken(Map<String, String> user) {
 
-        Either<String, Map<String, String>> result = Either.left("Can't create the JWT token.");
+        Either<String, Map<String, String>> result;
 
         {
 
@@ -36,7 +41,8 @@ public class LoginService {
                 _t.put("token", JWT.create()
                         .withJWTId(user.get("userId"))
                         //.withExpiresAt(new Date(Math.addExact(System.currentTimeMillis(), 1000 * 60/* * 10*/)))
-                        .withExpiresAt(new Date(System.currentTimeMillis()))
+                        .withIssuedAt(new Date(System.currentTimeMillis()))
+                        .withExpiresAt(new Date(Math.addExact(System.currentTimeMillis(), 1000 * 60/* * 10*/)))
                         .withIssuer("treetory")
                         .sign(Algorithm.HMAC256("treetory")));
                 _t.put("page", "/poc");

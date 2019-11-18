@@ -19,6 +19,9 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @author treetory@gmail.com
+ */
 @RestController
 @RequestMapping(value="/sample")
 public class SampleDataController {

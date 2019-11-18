@@ -1,4 +1,6 @@
-
+/**
+ * @author treetory@gmail.com
+ */
 const login = function() {
 
     let uid = document.getElementById("userId");
@@ -14,7 +16,7 @@ const login = function() {
                 console.log(result);
                 if (result.hasOwnProperty("token")) {
                     localStorage.setItem("token", result.token);
-                    location.href = result.page;
+                    location.href = result.page+"?token="+result.token;
                 } else {
                     alert(result);
                     localStorage.clear();

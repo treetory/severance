@@ -1,3 +1,6 @@
+/**
+ * @author treetory@gmail.com
+ */
 import { getData } from "./test.js";
 /**/
 const data1 =

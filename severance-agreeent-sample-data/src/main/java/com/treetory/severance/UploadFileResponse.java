@@ -1,5 +1,8 @@
 package com.treetory.severance;
 
+/**
+ * @author treetory@gmail.com
+ */
 public class UploadFileResponse {
 
     private String fileName;

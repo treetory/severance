@@ -1,3 +1,6 @@
+/**
+ * @author treetory@gmail.com
+ */
 'use strict';
 
 const SIGNPAD = (function() {

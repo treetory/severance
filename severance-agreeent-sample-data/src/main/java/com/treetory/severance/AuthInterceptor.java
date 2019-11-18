@@ -16,6 +16,13 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * To verify the JWT authorization token
+ * if you want to some patterns don't check the authorization header,
+ * please add the patterns name to "addInterceptors method' exclusive pattern" in Configuration class.
+ *
+ * @author treetory@gmail.com
+ */
 @Component
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 
@@ -26,6 +33,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+        LOGPrint.printHttpServletRequest(request);
 
         try {
 

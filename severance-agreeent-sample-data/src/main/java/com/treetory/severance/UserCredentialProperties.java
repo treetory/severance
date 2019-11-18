@@ -2,6 +2,9 @@ package com.treetory.severance;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * @author treetory@gmail.com
+ */
 @ConfigurationProperties(prefix = "user")
 public class UserCredentialProperties {
 
