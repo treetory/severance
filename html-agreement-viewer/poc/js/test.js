@@ -427,7 +427,7 @@ const aggregate = (function() {
         case "MRSoapBox"        : acc = __getMRSoapBox(item, element, acc);               break;
         case "MRAttrNameBox"    : acc = __getMRAttrNameBox(item, element, acc);           break;
         default:
-          console.log(item);
+          console.log({ "InsType" : item.InsType, "MRItemType" : item.MRItemType});
           break;
       };
 
@@ -536,7 +536,7 @@ const createHtmlElement = (function(){
         _element.style.height = "100%";
         _element.innerText = element.MRItemName;
         _element.tag = "input";
-        _element.type = "datetime";
+        _element.type = "datetime-local";
         _element.id = element.MRItemKey;
         _element.class = element.MRItemKey;
         _element.style.paddingLeft = element.Position_X+"px";
