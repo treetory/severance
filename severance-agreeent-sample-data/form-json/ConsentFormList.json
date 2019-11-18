@@ -1,0 +1,500 @@
+﻿[
+  {
+    "FrmCd": "F0007543",
+    "FrmDescription": "33A병동 입실 동의서"
+  },
+  {
+    "FrmCd": "F0009023",
+    "FrmDescription": "가족분만실 입실동의서"
+  },
+  {
+    "FrmCd": "F0005339",
+    "FrmDescription": "개인정보 수집 및 이용 동의서"
+  },
+  {
+    "FrmCd": "F0007336",
+    "FrmDescription": "교육, 상담료 사전점검표 및 환자동의서"
+  },
+  {
+    "FrmCd": "F0007394",
+    "FrmDescription": "기본심폐소생술 및 연명치료 거부 동의서"
+  },
+  {
+    "FrmCd": "F0011044",
+    "FrmDescription": "기본심폐소생술 및 연명치료 거부(DNR) 동의서-외국인용(영문)"
+  },
+  {
+    "FrmCd": "F0010852",
+    "FrmDescription": "완화의료병동 입실 동의서"
+  },
+  {
+    "FrmCd": "F0012414",
+    "FrmDescription": "고위험산모 태아 집중치료실 입실 동의서"
+  },
+  {
+    "FrmCd": "F0011923",
+    "FrmDescription": "호스피스 완화의료 이용 동의서"
+  },
+  {
+    "FrmCd": "F0012145",
+    "FrmDescription": "연명의료계획서"
+  },
+  {
+    "FrmCd": "F0011793",
+    "FrmDescription": "CCTV monitoring 동의서"
+  },
+  {
+    "FrmCd": "F0011936",
+    "FrmDescription": "낙상 예방 지침 (소아용)"
+  },
+  {
+    "FrmCd": "F0011935",
+    "FrmDescription": "낙상 예방 지침 (성인용)"
+  },
+  {
+    "FrmCd": "F0008927",
+    "FrmDescription": "낙상 예방 지침 (강남 소아용)"
+  },
+  {
+    "FrmCd": "F0008926",
+    "FrmDescription": "낙상 예방 지침 (강남 성인용)"
+  },
+  {
+    "FrmCd": "F0009907",
+    "FrmDescription": "낙상 예방 지침 (강남 소아용 러시아어)"
+  },
+  {
+    "FrmCd": "F0009906",
+    "FrmDescription": "낙상 예방 지침 (강남 성인용 러시아어)"
+  },
+  {
+    "FrmCd": "F0009906",
+    "FrmDescription": "낙상 예방 지침 (강남 성인용 러시아어)"
+  },
+  {
+    "FrmCd": "F0010262",
+    "FrmDescription": "낙상 예방 지침 (치과대학병원 소아용)"
+  },
+  {
+    "FrmCd": "F0010254",
+    "FrmDescription": "낙상 예방 지침 (치과대학병원 성인용)"
+  },
+  {
+    "FrmCd": "F0011574",
+    "FrmDescription": "낙상 예방 지침 (인공신장실)"
+  },
+  {
+    "FrmCd": "F0011696",
+    "FrmDescription": "낙상 예방 지침(간호간병통합서비스 병동)"
+  },
+  {
+    "FrmCd": "F0007337",
+    "FrmDescription": "뇌졸중 집중 치료실 입실 신청서-NM"
+  },
+  {
+    "FrmCd": "F0010033",
+    "FrmDescription": "마취동의서"
+  },
+  {
+    "FrmCd": "F0010034",
+    "FrmDescription": "마취동의서-외국인용(영어)"
+  },
+  {
+    "FrmCd": "F0012610",
+    "FrmDescription": "마취동의서-외국인용(러시아어) "
+  },
+  {
+    "FrmCd": "F0012328",
+    "FrmDescription": "마취 방법 및 주 전담의 안내"
+  },
+  {
+    "FrmCd": "F0012660",
+    "FrmDescription": "마취 방법 및 주 전담의 안내-외국인용(영어)"
+  },
+  {
+    "FrmCd": "F0012666",
+    "FrmDescription": "마취 방법 및 주 전담의 안내-외국인용(러시아어)"
+  },
+  {
+    "FrmCd": "F0007335",
+    "FrmDescription": "모자동실 입실동의서-OB"
+  },
+  {
+    "FrmCd": "F0011701",
+    "FrmDescription": "보호자 상주 요청서"
+  },
+  {
+    "FrmCd": "F0007132",
+    "FrmDescription": "비급여 서약서"
+  },
+  {
+    "FrmCd": "F0011379",
+    "FrmDescription": "비급여 서약서(식사)"
+  },
+  {
+    "FrmCd": "F0008275",
+    "FrmDescription": "비급여 요청서-AN"
+  },
+  {
+    "FrmCd": "F0007362",
+    "FrmDescription": "비급여 선별급여 사용 신청서-M3"
+  },
+  {
+    "FrmCd": "F0008928",
+    "FrmDescription": "비급여 요청서 (강남 심장내과 시술 및 검사용)",
+    "Location": "KANGNAM"
+  },
+  {
+    "FrmCd": "F0011670",
+    "FrmDescription": "비급여 요청서 (강남 정형외과 재원환자용)",
+    "Location": "KANGNAM"
+  },
+  {
+    "FrmCd": "F0007399",
+    "FrmDescription": "비급여 진료용 재료요청서-P2"
+  },
+  {
+    "FrmCd": "F0010957",
+    "FrmDescription": "만성 호흡부전 재활치료 비급여 동의서-CM"
+  },
+  {
+    "FrmCd": "F0011368",
+    "FrmDescription": "수면건강센터 설문 환자 동의서"
+  },
+  {
+    "FrmCd": "F0011735",
+    "FrmDescription": "수술 책임 집도의 변경 동의서"
+  },
+  {
+    "FrmCd": "F0012526",
+    "FrmDescription": "신경성형술 동의서"
+  },
+  {
+    "FrmCd": "F0012528",
+    "FrmDescription": "고주파 열응고술 동의서"
+  },
+  {
+    "FrmCd": "F0010048",
+    "FrmDescription": "시술 및 검사를 위한 진정마취 동의서"
+  },
+  {
+    "FrmCd": "F0010733",
+    "FrmDescription": "신체보호대 동의서"
+  },
+  {
+    "FrmCd": "F0007365",
+    "FrmDescription": "아동청소년 완화의료 동의서"
+  },
+  {
+    "FrmCd": "F0012287",
+    "FrmDescription": "소아청소년 완화의료 이용 및 개인정보 수집 동의서"
+  },
+  {
+    "FrmCd": "F0009143",
+    "FrmDescription": "안내 주사술 동의서"
+  },
+  {
+    "FrmCd": "F0012652",
+    "FrmDescription": "유방암 보조내분비요법 동의서"
+  },
+  {
+    "FrmCd": "F0007272",
+    "FrmDescription": "외래초기평가-성인(환자 및 보호자 작성)"
+  },
+  {
+    "FrmCd": "F0007273",
+    "FrmDescription": "외래초기평가-소아(환자 및 보호자 작성)"
+  },
+  {
+    "FrmCd": "F0007141",
+    "FrmDescription": "외출,외박 신청서"
+  },
+  {
+    "FrmCd": "F0007368",
+    "FrmDescription": "의료정보 및 사진촬영 제공 동의서"
+  },
+  {
+    "FrmCd": "F0010893",
+    "FrmDescription": "의무기록 사본발급(열람) 신청서"
+  },
+  {
+    "FrmCd": "F0007371",
+    "FrmDescription": "입원 시 간호 및 교육내용 확인서-PY"
+  },
+  {
+    "FrmCd": "F0007377",
+    "FrmDescription": "입원동의서-PY -광주"
+  },
+  {
+    "FrmCd": "F0010208",
+    "FrmDescription": "입원생활안내 (공통)"
+  },
+  {
+    "FrmCd": "F0007319",
+    "FrmDescription": "입원생활안내 (중환자실)"
+  },
+  {
+    "FrmCd": "F0011480",
+    "FrmDescription": "입원생활안내 (강남 중환자실)"
+  },
+  {
+    "FrmCd": "F0010253",
+    "FrmDescription": "입원생활안내 (치과대학병원)"
+  },
+  {
+    "FrmCd": "F0011840",
+    "FrmDescription": "입원전담전문의 시범병동 입원동의서(외과)",
+    "Location": "SHINCHON"
+  },
+  {
+    "FrmCd": "F0011846",
+    "FrmDescription": "입원전담전문의 시범병동 입원동의서(내과)",
+    "Location": "SHINCHON"
+  },
+  {
+    "FrmCd": "F0012334",
+    "FrmDescription": "입원전담전문의 시범병동 입원동의서(정형외과)",
+    "Location": "SHINCHON"
+  },
+  {
+    "FrmCd": "F0012204",
+    "FrmDescription": "입원전담전문의 시범병동 입원동의서(내과)",
+    "Location": "KANGNAM"
+  },
+  {
+    "FrmCd": "F0012435",
+    "FrmDescription": "입원전담전문의 시범병동 입원동의서(종양내과)"
+  },
+  {
+    "FrmCd": "F0012437",
+    "FrmDescription": "입원전담전문의 시범병동 입원동의서(산부인과)"
+  },
+  {
+    "FrmCd": "F0012655",
+    "FrmDescription": "입원전담전문의 시범병동 입원동의서(신경과)"
+  },
+  {
+    "FrmCd": "F0010068",
+    "FrmDescription": "입원생활 안내문(러시아환자용)",
+    "Location": "SHINCHON"
+  },
+  {
+    "FrmCd": "F0007134",
+    "FrmDescription": "입원생활안내 (강남)",
+    "Location": "KANGNAM"
+  },
+  {
+    "FrmCd": "F0009905",
+    "FrmDescription": "입원생활안내 (강남 러시아어)",
+    "Location": "KANGNAM"
+  },
+  {
+    "FrmCd": "F0011697",
+    "FrmDescription": "입원생활안내 (강남 간호간병통합서비스 병동)",
+    "Location": "KANGNAM"
+  },
+  {
+    "FrmCd": "F0011825",
+    "FrmDescription": "입원생활안내 (용인 간호간병통합서비스 병동)",
+    "Location": "YONGIN"
+  },
+  {
+    "FrmCd": "F0011830",
+    "FrmDescription": "입원생활안내 (간호간병통합서비스)"
+  },
+  {
+    "FrmCd": "F0012590",
+    "FrmDescription": "장기이식병동 입실 동의서"
+  },
+  {
+    "FrmCd": "F0011699",
+    "FrmDescription": "치아 피부상태 및 귀중품 정보"
+  },
+  {
+    "FrmCd": "F0007372",
+    "FrmDescription": "입원서약서-PY"
+  },
+  {
+    "FrmCd": "F0009653",
+    "FrmDescription": "요역동학 검사 동의서(소아)",
+    "Location": "SHINCHON"
+  },
+  {
+    "FrmCd": "F0010037",
+    "FrmDescription": "인체유래물등의 기증 동의서"
+  },
+  {
+    "FrmCd": "F0010077",
+    "FrmDescription": "(개인연구자용)인체유래물 연구 동의서"
+  },
+  {
+    "FrmCd": "F0009663",
+    "FrmDescription": "비디오요역동학 검사(V-UDS) 동의서",
+    "Location": "SHINCHON"
+  },
+  {
+    "FrmCd": "F0007373",
+    "FrmDescription": "자율 외출 및 산책서약서-PY"
+  },
+  {
+    "FrmCd": "F0007882",
+    "FrmDescription": "자퇴 서약서"
+  },
+  {
+    "FrmCd": "F0007334",
+    "FrmDescription": "조혈모세포 이식병동 입실 동의서"
+  },
+  {
+    "FrmCd": "F0011739",
+    "FrmDescription": "조직병리 슬라이드 폐기 동의서"
+  },
+  {
+    "FrmCd": "F0007363",
+    "FrmDescription": "중환자실 입실 동의서"
+  },
+  {
+    "FrmCd": "F0010874",
+    "FrmDescription": "중환자실 입실 동의서 및 비급여동의서"
+  },
+  {
+    "FrmCd": "F0011714",
+    "FrmDescription": "신생아집중치료실 입실동의서 및 비급여동의서 (만삭아)"
+  },
+  {
+    "FrmCd": "F0011713",
+    "FrmDescription": "신생아집중치료실 입실동의서 및 비급여동의서 (미숙아)"
+  },
+  {
+    "FrmCd": "F0011723",
+    "FrmDescription": "음압격리병실 입실동의서"
+  },
+  {
+    "FrmCd": "F0007333",
+    "FrmDescription": "진료정보회신 환자동의서"
+  },
+  {
+    "FrmCd": "F0011904",
+    "FrmDescription": "진료정보제공 환자동의서(강남)",
+    "Location": "KANGNAM"
+  },
+  {
+    "FrmCd": "F0008983",
+    "FrmDescription": "진정요법 동의서-AN"
+  },
+  {
+    "FrmCd": "F0007361",
+    "FrmDescription": "타이로젠 주사요법 비급여 동의서"
+  },
+  {
+    "FrmCd": "F0009213",
+    "FrmDescription": "테논낭하 스테로이드 주사술 동의서"
+  },
+  {
+    "FrmCd": "F0009992",
+    "FrmDescription": "소아 수면 유도(진정)동의서"
+  },
+  {
+    "FrmCd": "F0009227",
+    "FrmDescription": "세포 및 조직검사 동의서(DC)"
+  },
+  {
+    "FrmCd": "F0009212",
+    "FrmDescription": "고막 환기관 삽입술 동의서"
+  },
+  {
+    "FrmCd": "F0007355",
+    "FrmDescription": "환자 안전 관리 지침-PY"
+  },
+  {
+    "FrmCd": "F0007380",
+    "FrmDescription": "환자동의서-가정간호"
+  },
+  {
+    "FrmCd": "F0011467",
+    "FrmDescription": "회송환자 개인정보 제공 동의서"
+  },
+  {
+    "FrmCd": "F0009191",
+    "FrmDescription": "Barrier laser 동의서"
+  },
+  {
+    "FrmCd": "F0009063",
+    "FrmDescription": "YAG 동의서"
+  },
+  {
+    "FrmCd": "F0009325",
+    "FrmDescription": "레이저 광응고술(PRP) 동의서"
+  },
+  {
+    "FrmCd": "F0011029",
+    "FrmDescription": "Focal laser 동의서"
+  },
+  {
+    "FrmCd": "F0009089",
+    "FrmDescription": "다래끼 절개 및 배농 시술 동의서"
+  },
+  {
+    "FrmCd": "F0011481",
+    "FrmDescription": "형광안저촬영(FAG) 검사 동의서"
+  },
+  {
+    "FrmCd": "F0011177",
+    "FrmDescription": "교정치료 동의서 동의서"
+  },
+  {
+    "FrmCd": "F0011160",
+    "FrmDescription": "치료중단 동의 서약서"
+  },
+  {
+    "FrmCd": "F0010871",
+    "FrmDescription": "교정 후 유지치료 동의서"
+  },
+  {
+    "FrmCd": "F0011161",
+    "FrmDescription": "치의학 교육과 연구자료 공유 동의서"
+  },
+  {
+    "FrmCd": "F0007349",
+    "FrmDescription": "CT 비급여 동의서"
+  },
+  {
+    "FrmCd": "F0007347",
+    "FrmDescription": "General Consent"
+  },
+  {
+    "FrmCd": "F0011064",
+    "FrmDescription": "MRI 비급여 동의서"
+  },
+  {
+    "FrmCd": "F0007341",
+    "FrmDescription": "MRI 비급여 동의서(치과)"
+  },
+  {
+    "FrmCd": "F0009768",
+    "FrmDescription": "약물 부하 심초음파 검사 동의서"
+  },
+  {
+    "FrmCd": "F0009769",
+    "FrmDescription": "약물 부하(Ergonovine) 심초음파 검사 동의서"
+  },
+  {
+    "FrmCd": "F0009771",
+    "FrmDescription": "운동 부하 심초음파 검사 동의서"
+  },
+  {
+    "FrmCd": "F0009775",
+    "FrmDescription": "조영 심초음파 검사 동의서"
+  },
+  {
+    "FrmCd": "F0009791",
+    "FrmDescription": "경식도 심초음파 검사 동의서"
+  },
+  {
+    "FrmCd": "F0012238",
+    "FrmDescription": "부하심근조영 심초음파 검사 동의서"
+  },
+  {
+    "FrmCd": "AllItems",
+    "FrmDescription": "전체아이템"
+  }
+]
