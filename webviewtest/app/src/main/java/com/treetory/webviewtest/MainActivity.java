@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         /*  WebView 생성 */
         //this.setWebView();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
     }
 
 }

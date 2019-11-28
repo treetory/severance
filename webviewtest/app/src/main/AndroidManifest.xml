@@ -4,6 +4,8 @@
 
     <!-- 네트워크 접속 권한 -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 파일 쓰기 권한 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
