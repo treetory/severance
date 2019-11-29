@@ -74,7 +74,7 @@ public class TokenUtil {
         DecodedJWT _decoded = _v.verify(auth[1]);
         LOG.debug("{}{}{}", System.lineSeparator(), System.lineSeparator(), _decoded.getExpiresAt().getTime() - System.currentTimeMillis());
         if (_decoded.getExpiresAt().getTime() - System.currentTimeMillis() < 10 * 1000) {
-            result = Either.right(this.issueToken(_decoded.getClaim("userId").asString()));
+            result = Either.right(String.format("Bearer %s", this.issueToken(_decoded.getClaim("userId").asString())));
         }
         return result.isRight() ? result.get() : result.getLeft();
     }

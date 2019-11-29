@@ -1,7 +1,8 @@
 /**
  * @author treetory@gmail.com
  */
-'use strict';
+//'use strict';
+import { renewTokenIntoURL } from "./token.js";
 
 let singleUploadForm = document.querySelector('#singleUploadForm');
 let singleFileUploadInput = document.querySelector('#singleFileUploadInput');
@@ -18,8 +19,7 @@ function uploadSingleFile(file) {
     xhr.onload = function() {
         let response = JSON.parse(xhr.responseText);
         if(xhr.status == 200) {
-            localStorage.removeItem("token");
-            localStorage.setItem("token", xhr.getResponseHeader("Authorization"));
+            renewTokenIntoURL((xhr.getResponseHeader("Authorization")).split(" ")[1]);
             singleFileUploadError.style.display = "none";
             let _html = "<ul>";
             response.forEach(r => {

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import io.vavr.control.Option;
+
 import javax.annotation.PostConstruct;
 
 @RestControllerAdvice(assignableTypes = { SampleDataController.class })
@@ -30,12 +32,12 @@ public class SampleControllerAdvice implements ResponseBodyAdvice {
     }
 
     @Override
-    public boolean supports(MethodParameter methodParameter, Class aClass) {
+    public boolean supports(MethodParameter methodParameter, final Class aClass) {
         return true;
     }
 
     @Override
-    public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest request, ServerHttpResponse response) {
+    public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, final Class aClass, ServerHttpRequest request, ServerHttpResponse response) {
 
         if(response instanceof ServletServerHttpResponse) {
 
@@ -43,14 +45,23 @@ public class SampleControllerAdvice implements ResponseBodyAdvice {
             int status = res.getServletResponse().getStatus(); //get the status code
 
             if (status == 200) {
+                /*
                 if (res.getHeaders().containsKey("Authorization")) {
                     res.getHeaders().set("Authorization", String.format("%s", tokenUtil.renewToken(request.getHeaders().get("authorization").get(0))));
                 } else {
                     res.getHeaders().add("Authorization", String.format("%s", tokenUtil.renewToken(request.getHeaders().get("authorization").get(0))));
                 }
+                */
+                Option<String> _opt = Option.of(tokenUtil.renewToken(request.getHeaders().get("authorization").get(0)));
+                LOGPrint.printValue(_opt.get(), String.class);
+
+                if (!_opt.isEmpty()) {
+                    res.getHeaders().set("Authorization", String.format("%s", _opt.get()));
+                }
+                
             }
 
-            LOG.debug("{}", request.getHeaders().get("authorization").get(0));
+            //LOG.debug("{}", request.getHeaders().get("authorization").get(0));
 
         }
 

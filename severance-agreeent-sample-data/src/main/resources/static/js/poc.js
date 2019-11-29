@@ -2,6 +2,8 @@
  * @author treetory@gmail.com
  */
 import { getData } from "./test.js";
+import { renewTokenIntoURL } from "./token.js";
+
 /**/
 const data1 =
 {
@@ -3316,8 +3318,7 @@ const create = function() {
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                localStorage.removeItem("token");
-                localStorage.setItem("token", xhr.getResponseHeader("Authorization"));
+                renewTokenIntoURL((xhr.getResponseHeader("Authorization")).split(" ")[1]);
                 let result = JSON.parse(xhr.responseText);
                 //console.log(typeof result);
                 switch (typeof result) {
@@ -3377,8 +3378,10 @@ const setConsentFormList = function() {
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                localStorage.removeItem("token");
-                localStorage.setItem("token", xhr.getResponseHeader("Authorization"));
+                renewTokenIntoURL((xhr.getResponseHeader("Authorization")).split(" ")[1]);
+                //console.log(xhr.getAllResponseHeaders());
+                //console.log(localStorage.getItem("token"));
+                //console.log(xhr.getResponseHeader("authorization"));
                 //console.log(xhr.responseText);
                 if (xhr.responseText != "") {
                     let result = JSON.parse(xhr.responseText);

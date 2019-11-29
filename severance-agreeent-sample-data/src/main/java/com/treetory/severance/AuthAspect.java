@@ -1,19 +1,11 @@
 package com.treetory.severance;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.stream.Stream;
 
 /**
  * filter 적 관점에서 token verifying 후, 진행 여부의 컨트롤이 가능한지 보려했음
@@ -34,7 +26,7 @@ public class AuthAspect {
 
         Object result = pjp.proceed();
 
-        LOG.debug("{}{}{}", System.lineSeparator(), System.lineSeparator(), result.toString());
+        //OG.debug("{}{}{}", System.lineSeparator(), System.lineSeparator(), result.toString());
 
         return result;
     }
