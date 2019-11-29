@@ -4,6 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Enumeration;
 
 /**
@@ -16,22 +20,43 @@ public class LOGPrint {
     private static final Logger LOG = LoggerFactory.getLogger(LOGPrint.class);
 
     public static <T> void printHttpServletRequest(HttpServletRequest request) {
-        StringBuffer hsb = new StringBuffer();
+        StringBuffer reqSb = new StringBuffer();
         Enumeration enu = request.getHeaderNames();
         while(enu.hasMoreElements()) {
             String headerName = (String)enu.nextElement();
-            hsb.append("    [");
-            hsb.append(headerName);
-            hsb.append("]");
-            hsb.append(" : ");
-            hsb.append(request.getHeader(headerName));
-            hsb.append(System.lineSeparator());
+            reqSb.append("    [");
+            reqSb.append(headerName);
+            reqSb.append("]");
+            reqSb.append(" : ");
+            reqSb.append(request.getHeader(headerName));
+            reqSb.append(System.lineSeparator());
         }
 
         LOG.debug("{}{}{}{}{}{}",
                 System.lineSeparator(), System.lineSeparator(),
                 String.format("    [URI] : %s", request.getRequestURI()), System.lineSeparator(),
-                hsb.toString(), System.lineSeparator()
+                reqSb.toString(), System.lineSeparator()
+        );
+    }
+
+    public static <T> void printHttpServletResponse(HttpServletResponse response) {
+        StringBuffer resSb = new StringBuffer();
+        ArrayList<String> headerNames = (ArrayList) response.getHeaderNames();
+        headerNames.stream().forEach(o -> {
+
+            resSb.append("    [");
+            resSb.append(o);
+            resSb.append("]");
+            resSb.append(" : ");
+            resSb.append(response.getHeader(o));
+            resSb.append(System.lineSeparator());
+
+        });
+
+        LOG.debug("{}{}{}{}{}{}",
+                System.lineSeparator(), System.lineSeparator(),
+                String.format("    [STATUS] : %d", response.getStatus()), System.lineSeparator(),
+                resSb.toString(), System.lineSeparator()
         );
     }
 

@@ -18,6 +18,8 @@ function uploadSingleFile(file) {
     xhr.onload = function() {
         let response = JSON.parse(xhr.responseText);
         if(xhr.status == 200) {
+            localStorage.removeItem("token");
+            localStorage.setItem("token", xhr.getResponseHeader("Authorization"));
             singleFileUploadError.style.display = "none";
             let _html = "<ul>";
             response.forEach(r => {
@@ -36,7 +38,7 @@ function uploadSingleFile(file) {
         }
     };
 
-    xhr.setRequestHeader('Authorization', "Bearer "+localStorage.getItem("token"));
+    xhr.setRequestHeader('Authorization', /*"Bearer "+*/localStorage.getItem("token"));
     xhr.send(formData);
 }
 

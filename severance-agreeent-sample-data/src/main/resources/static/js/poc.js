@@ -3316,6 +3316,8 @@ const create = function() {
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
+                localStorage.removeItem("token");
+                localStorage.setItem("token", xhr.getResponseHeader("Authorization"));
                 let result = JSON.parse(xhr.responseText);
                 //console.log(typeof result);
                 switch (typeof result) {
@@ -3357,7 +3359,7 @@ const create = function() {
     xhr.open('GET', requestURL, true);
     xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
     xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
-    xhr.setRequestHeader('Authorization', "Bearer "+localStorage.getItem("token"));
+    xhr.setRequestHeader('Authorization', /*"Bearer "+*/localStorage.getItem("token"));
     xhr.send();
 
 }
@@ -3375,6 +3377,8 @@ const setConsentFormList = function() {
     xhr.onreadystatechange = function(e) { 
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
+                localStorage.removeItem("token");
+                localStorage.setItem("token", xhr.getResponseHeader("Authorization"));
                 //console.log(xhr.responseText);
                 if (xhr.responseText != "") {
                     let result = JSON.parse(xhr.responseText);
@@ -3398,7 +3402,7 @@ const setConsentFormList = function() {
     xhr.open('GET', requestURL, true);
     xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
     xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
-    xhr.setRequestHeader('Authorization', "Bearer "+localStorage.getItem("token"));
+    xhr.setRequestHeader('Authorization', /*"Bearer "+*/localStorage.getItem("token"));
     xhr.send();
 }
 

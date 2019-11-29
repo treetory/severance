@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import io.vavr.control.Either;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class FileController {
     private Gson gson;
 
     @PostMapping("/uploadFile")
-    public String uploadFile(HttpServletRequest request, @RequestParam("file") MultipartFile file) {
+    public String uploadFile(HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file) {
         
         Either<String, List<UploadFileResponse>> result = null;
         String fileName =  "";

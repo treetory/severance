@@ -127,6 +127,7 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
         registry.addInterceptor(new AuthInterceptor())
                 /**
                  *  page redirect 처리하는 경우는 header 에 authorization token 을 담을 수 없다.

@@ -1,6 +1,7 @@
 package com.treetory.severance;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
@@ -8,7 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.stream.Stream;
 
 /**
@@ -23,14 +27,14 @@ public class AuthAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthAspect.class);
 
-    @Around("execution(* com.treetory.severance.LoginController.*(..))")
+    @Around("execution(* com.treetory.severance.*Controller.*(..))")
     public Object verifyToken(ProceedingJoinPoint pjp)  throws Throwable {
 
         Object[] args = pjp.getArgs();
 
         Object result = pjp.proceed();
 
-        LOG.debug("{}", (String)result);
+        LOG.debug("{}{}{}", System.lineSeparator(), System.lineSeparator(), result.toString());
 
         return result;
     }

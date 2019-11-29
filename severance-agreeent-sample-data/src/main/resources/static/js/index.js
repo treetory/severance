@@ -16,7 +16,7 @@ const login = function() {
                 console.log(result);
                 if (result.hasOwnProperty("token")) {
                     localStorage.setItem("token", result.token);
-                    location.href = result.page+"?token="+result.token;
+                    location.href = result.page+"?token="+((result.token).split(" "))[1];
                 } else {
                     alert(result);
                     localStorage.clear();
