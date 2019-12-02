@@ -2,6 +2,7 @@ package com.treetory.severance;
 
 import com.auth0.jwt.JWT;
 import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.ISpringTemplateEngine;
@@ -38,6 +40,7 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
 
     private final WebApplicationContext appContext;
 
+    @Autowired
     public SampleDataConfiguration(WebApplicationContext appContext) {
         this.appContext = appContext;
     }
@@ -127,7 +130,7 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        registry.addInterceptor(new AuthInterceptor())
+        registry.addInterceptor((HandlerInterceptor) appContext.getBean("authInterceptor"))
                 /**
                  *  page redirect 처리하는 경우는 header 에 authorization token 을 담을 수 없다.
                  *  파라미터로 넘겨야만 한다.

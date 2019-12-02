@@ -28,11 +28,10 @@ public class FileController {
     private static final Logger LOG = LoggerFactory.getLogger(FileController.class);
 
     private final FileStorageProperties fileStorageProperties;
-
     private final FileStorageService fileStorageService;
-
     private final Gson gson;
 
+    @Autowired
     public FileController(FileStorageProperties fileStorageProperties, FileStorageService fileStorageService, Gson gson) {
         this.fileStorageProperties = fileStorageProperties;
         this.fileStorageService = fileStorageService;

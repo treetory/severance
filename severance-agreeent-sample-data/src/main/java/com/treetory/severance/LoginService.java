@@ -19,11 +19,14 @@ public class LoginService {
 
     private static final Logger LOG = LoggerFactory.getLogger(LoginService.class);
 
-    @Autowired
-    private UserCredentialProperties userCredentialProperties;
+    private final UserCredentialProperties userCredentialProperties;
+    private final TokenUtil tokenUtil;
 
     @Autowired
-    private TokenUtil tokenUtil;
+    public LoginService(UserCredentialProperties userCredentialProperties, TokenUtil tokenUtil) {
+        this.userCredentialProperties = userCredentialProperties;
+        this.tokenUtil = tokenUtil;
+    }
 
     public Either<String, Map<String, String>> generateToken(Map<String, String> user) {
 

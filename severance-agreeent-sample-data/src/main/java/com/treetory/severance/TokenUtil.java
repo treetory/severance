@@ -19,14 +19,18 @@ public class TokenUtil {
 
     private static final Logger LOG = LoggerFactory.getLogger(TokenUtil.class);
 
-    @Autowired
-    private JWT JWT;
+    private final JWT JWT;
+    private JWTVerifier _v;
 
-    JWTVerifier _v = JWT
-            .require(Algorithm.HMAC256("treetory"))
-            .withIssuer("treetory")
-            .acceptExpiresAt(60*60*1)
-            .build();
+    @Autowired
+    public TokenUtil(JWT JWT) {
+        this.JWT = JWT;
+        _v = this.JWT
+                .require(Algorithm.HMAC256("treetory"))
+                .withIssuer("treetory")
+                .acceptExpiresAt(60*60*1)
+                .build();
+    }
 
     public String issueToken(String userId) {
         return
@@ -54,9 +58,7 @@ public class TokenUtil {
             }
 
         } catch (JWTVerificationException e) {
-            //e.printStackTrace();
-            LOG.error("{}", e.getMessage());
-            LOG.debug("{}{}", System.lineSeparator(), "------------------------------");
+            LOGPrint.printException(e, JWTVerificationException.class);
             return false;
         }
 
@@ -71,7 +73,8 @@ public class TokenUtil {
         //LOG.debug("{}{}{}", System.lineSeparator(), System.lineSeparator(), auth[1]);
 
         DecodedJWT _decoded = _v.verify(auth[1]);
-        LOG.debug("{}{}{}", System.lineSeparator(), System.lineSeparator(), _decoded.getExpiresAt().getTime() - System.currentTimeMillis());
+        //LOG.debug("{}{}{}", System.lineSeparator(), System.lineSeparator(), _decoded.getExpiresAt().getTime() - System.currentTimeMillis());
+        LOGPrint.printValue(_decoded.getExpiresAt().getTime() - System.currentTimeMillis(), Long.class);
         if (_decoded.getExpiresAt().getTime() - System.currentTimeMillis() < 10 * 1000) {
             result = Either.right(String.format("Bearer %s", this.issueToken(_decoded.getClaim("userId").asString())));
         }

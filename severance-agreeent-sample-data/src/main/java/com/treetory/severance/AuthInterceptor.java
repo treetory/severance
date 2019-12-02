@@ -28,15 +28,21 @@ import java.util.Map;
  *
  * @author treetory@gmail.com
  */
-@Component
+@Component("authInterceptor")
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthInterceptor.class);
 
-    @Autowired
-    private WebApplicationContext appContext;
+    private final WebApplicationContext appContext;
+    private TokenUtil tokenUtil;
+    private JWT JWT;
 
-    private TokenUtil tokenUtil = new TokenUtil();
+    @Autowired
+    public AuthInterceptor(WebApplicationContext appContext) {
+        this.appContext = appContext;
+        this.JWT = new JWT();
+        this.tokenUtil = new TokenUtil(JWT);
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

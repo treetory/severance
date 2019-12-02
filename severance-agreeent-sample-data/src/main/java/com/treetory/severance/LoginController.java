@@ -22,9 +22,9 @@ public class LoginController {
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
     private final LoginService loginService;
-
     private final Gson gson;
 
+    @Autowired
     public LoginController(LoginService loginService, Gson gson) {
         this.loginService = loginService;
         this.gson = gson;

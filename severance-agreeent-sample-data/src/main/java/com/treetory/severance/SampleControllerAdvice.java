@@ -22,9 +22,9 @@ public class SampleControllerAdvice implements ResponseBodyAdvice {
     private static final Logger LOG = LoggerFactory.getLogger(SampleControllerAdvice.class);
 
     private final WebApplicationContext appContext;
-
     private TokenUtil tokenUtil;
 
+    @Autowired
     public SampleControllerAdvice(WebApplicationContext appContext) {
         this.appContext = appContext;
     }

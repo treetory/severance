@@ -29,6 +29,7 @@ public class ViewController {
 
     private final JWT JWT;
 
+    @Autowired
     public ViewController(JWT JWT) {
         this.JWT = JWT;
     }

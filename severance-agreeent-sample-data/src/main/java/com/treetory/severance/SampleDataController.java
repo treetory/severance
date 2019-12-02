@@ -30,9 +30,9 @@ public class SampleDataController {
     private static final Logger LOG = LoggerFactory.getLogger(SampleDataController.class);
 
     private final Gson gson;
-
     private final FileStorageProperties fileStorageProperties;
 
+    @Autowired
     public SampleDataController(Gson gson, FileStorageProperties fileStorageProperties) {
         this.gson = gson;
         this.fileStorageProperties = fileStorageProperties;

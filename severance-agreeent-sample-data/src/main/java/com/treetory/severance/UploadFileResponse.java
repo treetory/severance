@@ -1,5 +1,7 @@
 package com.treetory.severance;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * @author treetory@gmail.com
  */
@@ -10,6 +12,7 @@ public class UploadFileResponse {
     private String fileType;
     private long size;
 
+    @Autowired
     public UploadFileResponse(String fileName, String fileDownloadUri, String fileType, long size) {
         this.fileName = fileName;
         this.fileDownloadUri = fileDownloadUri;
