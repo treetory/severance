@@ -1,12 +1,12 @@
 package com.treetory.severance;
 
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+
+import java.io.*;
+import java.nio.file.*;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,18 +23,33 @@ public class FileStorageService {
 
     private final Path fileStorageLocation;
 
+    private final Path consentFormDataLocation;
+
+    private final Gson gson;
+
     @Autowired
-    public FileStorageService(FileStorageProperties fileStorageProperties) {
+    public FileStorageService(FileStorageProperties fileStorageProperties, Gson gson) {
 
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
                 .toAbsolutePath().normalize();
 
+        this.consentFormDataLocation = Paths.get(fileStorageProperties.getWriteDir())
+                .toAbsolutePath().normalize();
+
+        this.gson = new Gson();
+
         LOG.debug("{}{}{}{}", System.lineSeparator(), System.lineSeparator(), this.fileStorageLocation, System.lineSeparator());
+
+        LOG.debug("{}{}{}{}", System.lineSeparator(), System.lineSeparator(), this.consentFormDataLocation, System.lineSeparator());
 
         try {
 
             if (!Files.isDirectory(this.fileStorageLocation)) {
                 Files.createDirectories(this.fileStorageLocation);
+            }
+
+            if (!Files.isDirectory(this.consentFormDataLocation)) {
+                Files.createDirectories(this.consentFormDataLocation);
             }
 
         } catch (Exception ex) {
@@ -56,7 +71,6 @@ public class FileStorageService {
 
             // Copy file to the target location (Replacing existing file with the same name)
             String[] _fileName = fileName.split("\\.");
-            LOG.debug("{}", fileName.split("\\."));
             String storedFileName = String.format("%s_%d.%s", _fileName[0], System.currentTimeMillis(), _fileName[1]);
             Path targetLocation = this.fileStorageLocation.resolve(storedFileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
@@ -67,4 +81,21 @@ public class FileStorageService {
         }
     }
 
+    public String writeJSONFile(Map<String, Object> consentFormData) {
+
+        String fileName = String.format("%s_%d.json", (String)((Map)consentFormData.get("FrmInfo")).get("FrmCd"), System.currentTimeMillis());
+
+        try {
+            Path targetLocation = this.consentFormDataLocation.resolve(fileName);
+            // gson 으로는 8KB 밖에 안 쓰여짐... 왜 그런지는 모르겟음
+            //gson.toJson(consentFormData, new FileWriter(targetLocation.toAbsolutePath().toString()));
+            Files.write(targetLocation, gson.toJson(consentFormData).getBytes("UTF-8"), StandardOpenOption.CREATE_NEW);
+            return "Success to write the consent form data to server.";
+        } catch (IOException ex) {
+            FileStorageException fse = new FileStorageException("Could not write file " + fileName + " into the [consentFormData] folder. Please try again!", ex);
+            LOGPrint.printException(ex, IOException.class);
+            return fse.getMessage();
+        }
+
+    }
 }

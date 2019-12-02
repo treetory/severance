@@ -17,6 +17,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author treetory@gmail.com
@@ -74,6 +75,16 @@ public class FileController {
             result = Either.left(String.format("Exception is occurred when store file in server."));
         }
 
+        return result.isLeft() ? gson.toJson(result.getLeft()) : gson.toJson(result.get());
+    }
+
+    @RequestMapping(value="/updateJSON",
+            method= RequestMethod.POST,
+            produces = {MediaType.APPLICATION_JSON_VALUE }
+    )
+    public String uploadConsentFormJSON(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> consentFormData) {
+        Either<String, String> result = Either.left("");
+        result = Either.right(fileStorageService.writeJSONFile(consentFormData));
         return result.isLeft() ? gson.toJson(result.getLeft()) : gson.toJson(result.get());
     }
 

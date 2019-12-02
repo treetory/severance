@@ -86,7 +86,8 @@ public class SampleDataController {
     )
     public String getData(HttpServletRequest request, HttpServletResponse response, @PathVariable String path) {
 
-        Either<String, ArrayList> result = null;
+        //Either<String, ArrayList> result = null;
+        Either<String, Map> result = null;
 
         try {
             /*
@@ -97,8 +98,8 @@ public class SampleDataController {
             Map _temp = (Map<String, String>) gson.fromJson(new BufferedReader(
                 new InputStreamReader(new FileInputStream(String.format("./uploads/%s", path)), "UTF-8")),
                 Map.class);
-            result = Either.right((ArrayList)((Map)((Map)((ArrayList)_temp.get("Regions")).get(0)).get("VisualTree")).get("Items"));
-
+            //result = Either.right((ArrayList)((Map)((Map)((ArrayList)_temp.get("Regions")).get(0)).get("VisualTree")).get("Items"));
+            result = Either.right(_temp);
         } catch (Exception e) {
             LOGPrint.printException(e, this.getClass());
             result = Either.left(String.format("Exception is occurred when read json file or parse json file."));

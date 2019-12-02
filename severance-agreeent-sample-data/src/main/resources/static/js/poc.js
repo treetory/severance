@@ -3322,9 +3322,10 @@ const create = function() {
                 let result = JSON.parse(xhr.responseText);
                 //console.log(typeof result);
                 switch (typeof result) {
-                    case "string":  alert(result);                              break;
-                    case "object":  getData(result);                            break;
-                    default:        alert("알 수 없는 유형의 데이터입니다.");      break;
+                    case "string":  alert(result);                                break;
+                    //case "object":  getData(result);                            break;
+                    case "object":  getData(result.Regions[0].VisualTree.Items);  break;
+                    default:        alert("알 수 없는 유형의 데이터입니다.");       break;
                 }
             } else {
                 /*

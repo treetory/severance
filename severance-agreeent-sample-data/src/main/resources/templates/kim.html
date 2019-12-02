@@ -18,7 +18,7 @@
         <div class="single-upload">
             <h3>JSON 파일 업로드(동의서 포맷에 맞는)</h3>
             <form id="singleUploadForm" name="singleUploadForm">
-                <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+                <input id="singleFileUploadInput" type="file" name="file" class="file-input" accept=".json" required />
                 <button type="submit" class="primary submit-btn">업로드</button>
             </form>
             <div class="upload-response">
@@ -39,6 +39,7 @@
             </div>
             -->
             <div style="display: table-cell; padding: 1px 1px 1px 1px; min-width: 88px; text-align: right; ">
+                <button id="send" style="height: 100%;">서식 전송</button>
                 <button id="create" style="height: 100%;">서식 생성</button>
             </div>
         </div>
