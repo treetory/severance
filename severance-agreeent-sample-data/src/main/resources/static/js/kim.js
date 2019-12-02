@@ -95,6 +95,12 @@ const setButtonEvent = function() {
  * 전송 버튼 기능
  */
 const send = function() {
+
+    if (!window.document.getElementById("pages").hasChildNodes()) {
+        alert("전송할 동의서 정보가 아직 렌더링 되지 않았습니다.");
+        return;
+    }
+
     let _data = consentData.Regions[0].VisualTree.Items;
     let _keys = Object.keys(_data);
     _keys.forEach(_key => {
@@ -147,6 +153,11 @@ const send = function() {
  * 생성 버튼 기능
  */
 const create = function() {
+
+    if (window.document.getElementById("fileName") == null) {
+        alert("렌더링할 동의서 정보가 아직 업로드 되지 않았습니다.");
+        return;
+    } 
 
     let e = document.getElementById("fileName");
     let fileName = e.innerHTML;
