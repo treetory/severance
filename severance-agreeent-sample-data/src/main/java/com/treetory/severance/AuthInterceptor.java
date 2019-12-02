@@ -57,19 +57,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
-        /*
-        Option<String> _opt = Option.of(request.getHeader("Authorization"));
-
-        //LOGPrint.printValue(_opt.get(), String.class);
-
-        Option<String> _renewedToken = Option.of(tokenUtil.renewToken(_opt.get()));
-
-        if (!_opt.isEmpty()) {
-            response.addHeader("Authorization", String.format("Bearer %s", _renewedToken.get()));
-        }
-        */
         LOGPrint.printHttpServletResponse(response);
-
     }
 
 }

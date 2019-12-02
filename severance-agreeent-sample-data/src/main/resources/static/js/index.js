@@ -36,9 +36,17 @@ const login = function() {
 }
 
 const setButtonEvent = function() {
-    // 생성 버튼 이벤트 바인딩
-    let createButton = window.document.getElementById("login");
-    createButton.onclick = login;
+    // 로그인 버튼 이벤트 바인딩
+    let loginButton = window.document.getElementById("login");
+    loginButton.onclick = login;
+
+    let password = window.document.getElementById("password");
+    password.onkeydown = function(e) {
+        if (e.code == "Enter") {
+            loginButton.click();
+        }
+    };
+
 }
 
 export { login, setButtonEvent }
