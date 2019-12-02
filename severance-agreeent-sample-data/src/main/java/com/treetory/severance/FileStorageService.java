@@ -83,18 +83,21 @@ public class FileStorageService {
 
     public String writeJSONFile(Map<String, Object> consentFormData) {
 
-        String fileName = String.format("%s_%d.json", (String)((Map)consentFormData.get("FrmInfo")).get("FrmCd"), System.currentTimeMillis());
-
+        String fileName ="";
         try {
+            fileName = String.format("%s_%d.json", (String)((Map)consentFormData.get("FrmInfo")).get("FrmCd"), System.currentTimeMillis());
             Path targetLocation = this.consentFormDataLocation.resolve(fileName);
             // gson 으로는 8KB 밖에 안 쓰여짐... 왜 그런지는 모르겟음
             //gson.toJson(consentFormData, new FileWriter(targetLocation.toAbsolutePath().toString()));
             Files.write(targetLocation, gson.toJson(consentFormData).getBytes("UTF-8"), StandardOpenOption.CREATE_NEW);
             return "Success to write the consent form data to server.";
-        } catch (IOException ex) {
-            FileStorageException fse = new FileStorageException("Could not write file " + fileName + " into the [consentFormData] folder. Please try again!", ex);
-            LOGPrint.printException(ex, IOException.class);
+        } catch (IOException ie) {
+            FileStorageException fse = new FileStorageException("Could not write file " + fileName + " into the [consentFormData] folder. Please try again!", ie);
+            LOGPrint.printException(ie, IOException.class);
             return fse.getMessage();
+        } catch (NullPointerException npe) {
+            LOGPrint.printException(npe, IOException.class);
+            return "Can't find [FrmInfo] from the consentFormData.";
         }
 
     }
