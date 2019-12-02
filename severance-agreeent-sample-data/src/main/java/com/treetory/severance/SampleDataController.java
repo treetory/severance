@@ -29,11 +29,14 @@ public class SampleDataController {
 
     private static final Logger LOG = LoggerFactory.getLogger(SampleDataController.class);
 
-    @Autowired
-    private Gson gson;
+    private final Gson gson;
 
-    @Autowired
-    private FileStorageProperties fileStorageProperties;
+    private final FileStorageProperties fileStorageProperties;
+
+    public SampleDataController(Gson gson, FileStorageProperties fileStorageProperties) {
+        this.gson = gson;
+        this.fileStorageProperties = fileStorageProperties;
+    }
 
     @RequestMapping(value="/list",
             method= RequestMethod.GET,
@@ -92,7 +95,7 @@ public class SampleDataController {
                 reader 변경 -> 인코딩 지정할 수 있는 inputStreamReader 로 변경함
             */
             Map _temp = (Map<String, String>) gson.fromJson(new BufferedReader(
-                new InputStreamReader(new FileInputStream(String.format("./form-json/%s.json", path)), "UTF-8")),
+                new InputStreamReader(new FileInputStream(String.format("./uploads/%s", path)), "UTF-8")),
                 Map.class);
             result = Either.right((ArrayList)((Map)((Map)((ArrayList)_temp.get("Regions")).get(0)).get("VisualTree")).get("Items"));
 

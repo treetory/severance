@@ -3,9 +3,8 @@ package com.treetory.severance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -27,33 +26,39 @@ public class FileController {
 
     private static final Logger LOG = LoggerFactory.getLogger(FileController.class);
 
-    @Autowired
-    private FileStorageProperties fileStorageProperties;
+    private final FileStorageProperties fileStorageProperties;
 
-    @Autowired
-    private FileStorageService fileStorageService;
+    private final FileStorageService fileStorageService;
 
-    @Autowired
-    private Gson gson;
+    private final Gson gson;
 
-    @PostMapping("/uploadFile")
+    public FileController(FileStorageProperties fileStorageProperties, FileStorageService fileStorageService, Gson gson) {
+        this.fileStorageProperties = fileStorageProperties;
+        this.fileStorageService = fileStorageService;
+        this.gson = gson;
+    }
+
+    //@PostMapping("/uploadFile")
+    @RequestMapping(value="/uploadFile",
+            method= RequestMethod.POST,
+            produces = {MediaType.APPLICATION_JSON_VALUE }
+    )
     public String uploadFile(HttpServletRequest request, HttpServletResponse response, @RequestParam("file") MultipartFile file) {
         
         Either<String, List<UploadFileResponse>> result = null;
-        String fileName =  "";
         try {
 
-            fileName = fileStorageService.storeFile(file);
+            final String fileName = fileStorageService.storeFile(file);
             File f = new File(fileStorageProperties.getUploadDir());
             List<UploadFileResponse> list = new ArrayList<>();
             if (f.isDirectory()) {
                 Arrays.asList(f.listFiles()).stream().forEach(_f -> {
-                    if (_f.isFile()) {
+                    if (_f.isFile() && _f.getName().equals(fileName)) {
                         UploadFileResponse ufr = new UploadFileResponse(
-                                _f.getName(),
+                                fileName,
                                 ServletUriComponentsBuilder.fromCurrentContextPath()
                                         .path("/downloadFile/")
-                                        .path(_f.getName())
+                                        .path(fileName)
                                         .toUriString(),
                                 "",
                                 _f.length()
@@ -70,7 +75,6 @@ public class FileController {
         }
 
         return result.isLeft() ? gson.toJson(result.getLeft()) : gson.toJson(result.get());
-        //return fileName;
     }
 
 }

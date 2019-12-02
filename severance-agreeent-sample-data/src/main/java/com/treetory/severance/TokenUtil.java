@@ -25,7 +25,7 @@ public class TokenUtil {
     JWTVerifier _v = JWT
             .require(Algorithm.HMAC256("treetory"))
             .withIssuer("treetory")
-            .acceptExpiresAt(60*1)
+            .acceptExpiresAt(60*60*1)
             .build();
 
     public String issueToken(String userId) {
@@ -33,9 +33,8 @@ public class TokenUtil {
         JWT.create()
                 .withClaim("userId", userId)
                 .withJWTId(userId)
-                //.withExpiresAt(new Date(Math.addExact(System.currentTimeMillis(), 1000 * 60/* * 10*/)))
                 .withIssuedAt(new Date(System.currentTimeMillis()))
-                .withExpiresAt(new Date(Math.addExact(System.currentTimeMillis(), 1000 * 60/* * 10*/)))
+                .withExpiresAt(new Date(Math.addExact(System.currentTimeMillis(), 1000 * 60 * 60)))
                 .withIssuer("treetory")
                 .sign(Algorithm.HMAC256("treetory"));
     }

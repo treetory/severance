@@ -2,8 +2,6 @@ package com.treetory.severance;
 
 import com.auth0.jwt.JWT;
 import com.google.gson.Gson;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -14,14 +12,12 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.thymeleaf.spring5.ISpringTemplateEngine;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
-
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -40,8 +36,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 public class SampleDataConfiguration implements ApplicationListener<ApplicationEvent>, WebMvcConfigurer {
 
-    @Autowired
-    private WebApplicationContext appContext;
+    private final WebApplicationContext appContext;
+
+    public SampleDataConfiguration(WebApplicationContext appContext) {
+        this.appContext = appContext;
+    }
 
     @Bean(name = "JWT")
     public static final JWT JWT() {
@@ -136,6 +135,8 @@ public class SampleDataConfiguration implements ApplicationListener<ApplicationE
                  */
                 .excludePathPatterns("/")
                 .excludePathPatterns("/poc")
+                .excludePathPatterns("/kim")
+                .excludePathPatterns("/paik")
                 .excludePathPatterns("/upload")
                 .excludePathPatterns("/error")
                 // REST API URL

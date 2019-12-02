@@ -21,11 +21,14 @@ public class LoginController {
 
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
 
-    @Autowired
-    private LoginService loginService;
+    private final LoginService loginService;
 
-    @Autowired
-    private Gson gson;
+    private final Gson gson;
+
+    public LoginController(LoginService loginService, Gson gson) {
+        this.loginService = loginService;
+        this.gson = gson;
+    }
 
     /**
      *

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>동의서 서식 업로드 및 변환 테스트</title>
+    <link rel="stylesheet" href="../css/upload.css" />
+</head>
+<body>
+<noscript>
+    <h2>Sorry! Your browser doesn't support Javascript</h2>
+</noscript>
+
+<div class="upload-container">
+    <div class="upload-header">
+        <h2>동의서 서식 업로드 및 변환 테스트</h2>
+    </div>
+    <div class="upload-content">
+        <div class="single-upload">
+            <h3>JSON 파일 업로드(동의서 포맷에 맞는)</h3>
+            <form id="singleUploadForm" name="singleUploadForm">
+                <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+                <button type="submit" class="primary submit-btn">업로드</button>
+            </form>
+            <div class="upload-response">
+                <div id="singleFileUploadError"></div>
+                <div id="singleFileUploadSuccess"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="padding: 30px 0px 30px 30px; background-color: #fff; box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);">
+    <div id="search" style="display: table; height: 30px; border-style: solid; border-width: 2px; padding: 10px 10px 10px 10px; min-width: 300px; width: 95%;">
+        <div style="display: table-row; padding: 2px 2px 2px 2px;">
+            <!--
+            <div style="display: table-cell; padding: 1px 1px 1px 1px; width: 85%;">
+                <select id="fileName" style="width: 100%; height: 100%;">
+                </select>
+            </div>
+            -->
+            <div style="display: table-cell; padding: 1px 1px 1px 1px; min-width: 88px; text-align: right; ">
+                <button id="create" style="height: 100%;">서식 생성</button>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <div id="pages" style="display: table; height: 30px; border-style: solid; border-width: 2px; padding: 10px 10px 10px 10px; min-width: 300px; width: 95%;">
+    </div>
+</div>
+<script type="module" src="../js/kim.js"></script>
+
+<script type="module">
+
+    import { create, setButtonEvent } from "../js/kim.js";
+
+    window.onload = function(e) {
+        // 화면 이벤트 생성
+        setButtonEvent();
+    };
+
+    window.onunload = function(e) {
+        console.log("UNLOAD!!!");
+    };
+
+</script>
+</body>
+</html>

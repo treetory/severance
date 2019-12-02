@@ -36,7 +36,8 @@ public class LoginService {
 
                 Map<String, String> _t = new HashMap<>();
                 _t.put("token", String.format("Bearer %s", tokenUtil.issueToken(user.get("userId"))));
-                _t.put("page", "/poc");
+                //_t.put("page", "/poc");
+                _t.put("page", "/kim");
                 result = Either.right(_t);
 
             } else {

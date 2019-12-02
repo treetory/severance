@@ -46,6 +46,8 @@ public class FileStorageService {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
+        LOGPrint.printValue(fileName, String.class);
+
         try {
             // Check if the file's name contains invalid characters
             if(fileName.contains("..")) {
@@ -53,10 +55,13 @@ public class FileStorageService {
             }
 
             // Copy file to the target location (Replacing existing file with the same name)
-            Path targetLocation = this.fileStorageLocation.resolve(fileName);
+            String[] _fileName = fileName.split("\\.");
+            LOG.debug("{}", fileName.split("\\."));
+            String storedFileName = String.format("%s_%d.%s", _fileName[0], System.currentTimeMillis(), _fileName[1]);
+            Path targetLocation = this.fileStorageLocation.resolve(storedFileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
-            return fileName;
+            return /*fileName*/storedFileName;
         } catch (IOException ex) {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
         }

@@ -27,8 +27,11 @@ public class ViewController {
 
     private static final Logger LOG = LoggerFactory.getLogger(ViewController.class);
 
-    @Autowired
-    private JWT JWT;
+    private final JWT JWT;
+
+    public ViewController(JWT JWT) {
+        this.JWT = JWT;
+    }
 
     /**
      *  welcome page (login page)
@@ -69,6 +72,40 @@ public class ViewController {
      */
     @RequestMapping("/upload")
     public ModelAndView goToUpload(HttpServletRequest request, HttpServletResponse response,
+                                   @RequestParam String token) {
+
+        Either<ModelAndView, ModelAndView> mav = this.checkToken(token, request);
+
+        return /*new ModelAndView("upload");*/ mav.isRight() ? mav.get() : mav.getLeft();
+    }
+
+    /**
+     * the view page for kim yoo chul
+     *
+     * @param request
+     * @param response
+     * @param token (JWT token)
+     * @return mav (the name of view to direct)
+     */
+    @RequestMapping("/kim")
+    public ModelAndView goToKim(HttpServletRequest request, HttpServletResponse response,
+                                 @RequestParam String token) {
+
+        Either<ModelAndView, ModelAndView> mav = this.checkToken(token, request);
+
+        return /*new ModelAndView("upload");*/ mav.isRight() ? mav.get() : mav.getLeft();
+    }
+
+    /**
+     * the view page for paik guem joo
+     *
+     * @param request
+     * @param response
+     * @param token (JWT token)
+     * @return mav (the name of view to direct)
+     */
+    @RequestMapping("/paik")
+    public ModelAndView goToPaik(HttpServletRequest request, HttpServletResponse response,
                                    @RequestParam String token) {
 
         Either<ModelAndView, ModelAndView> mav = this.checkToken(token, request);

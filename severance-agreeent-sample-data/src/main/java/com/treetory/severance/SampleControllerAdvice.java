@@ -16,15 +16,18 @@ import io.vavr.control.Option;
 
 import javax.annotation.PostConstruct;
 
-@RestControllerAdvice(assignableTypes = { SampleDataController.class })
+@RestControllerAdvice(assignableTypes = { SampleDataController.class, FileController.class })
 public class SampleControllerAdvice implements ResponseBodyAdvice {
 
     private static final Logger LOG = LoggerFactory.getLogger(SampleControllerAdvice.class);
 
-    @Autowired
-    private WebApplicationContext appContext;
+    private final WebApplicationContext appContext;
 
     private TokenUtil tokenUtil;
+
+    public SampleControllerAdvice(WebApplicationContext appContext) {
+        this.appContext = appContext;
+    }
 
     @PostConstruct
     private void init() {
@@ -45,20 +48,12 @@ public class SampleControllerAdvice implements ResponseBodyAdvice {
             int status = res.getServletResponse().getStatus(); //get the status code
 
             if (status == 200) {
-                /*
-                if (res.getHeaders().containsKey("Authorization")) {
-                    res.getHeaders().set("Authorization", String.format("%s", tokenUtil.renewToken(request.getHeaders().get("authorization").get(0))));
-                } else {
-                    res.getHeaders().add("Authorization", String.format("%s", tokenUtil.renewToken(request.getHeaders().get("authorization").get(0))));
-                }
-                */
                 Option<String> _opt = Option.of(tokenUtil.renewToken(request.getHeaders().get("authorization").get(0)));
                 LOGPrint.printValue(_opt.get(), String.class);
 
                 if (!_opt.isEmpty()) {
                     res.getHeaders().set("Authorization", String.format("%s", _opt.get()));
                 }
-                
             }
 
             //LOG.debug("{}", request.getHeaders().get("authorization").get(0));
