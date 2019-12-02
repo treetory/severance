@@ -1,16 +1,36 @@
 /**
  * @author treetory@gmail.com
+ *
+ * 세브란스 연세의료원에서 테스트 할 수 있도록 테스트 파일럿 형태로 구성함
  */
 import { getData } from "./test.js";
 import { renewTokenIntoURL } from "./token.js";
 
+/**
+ *  업로드 파일 선택 폼
+ */
 let singleUploadForm = document.querySelector('#singleUploadForm');
+singleUploadForm.addEventListener('submit', function(event){
+    let files = singleFileUploadInput.files;
+    if(files.length === 0) {
+        singleFileUploadError.innerHTML = "Please select a file";
+        singleFileUploadError.style.display = "block";
+    }
+    uploadSingleFile(files[0]);
+    event.preventDefault();
+}, true);
+
 let singleFileUploadInput = document.querySelector('#singleFileUploadInput');
 let singleFileUploadError = document.querySelector('#singleFileUploadError');
 let singleFileUploadSuccess = document.querySelector('#singleFileUploadSuccess');
 
-let consentData = {};
+let consentData = {};       // 전역변수 : 일단 의료원으로부터 수신한 동의서식을 저장한 후, 수정하거나 하면 여기에 반영되도록 했음 -> MVVM 형태로 할 거면 이렇게 쓰지 않는게 좋을 것 같은데... 테스트니까 그냥 함
 
+/**
+ * 파일 업로드 기능
+ *
+ * @param file
+ */
 const uploadSingleFile = function(file) {
 
     document.getElementById("pages").innerHTML = "";
@@ -36,6 +56,11 @@ const uploadSingleFile = function(file) {
     xhr.send(formData);
 }
 
+/**
+ * 파일 업로드 기능 수행 후, callback
+ *
+ * @param response
+ */
 const setUploadSingleFileResult = function(response) {
 
     singleFileUploadError.style.display = "none";
@@ -54,16 +79,9 @@ const setUploadSingleFileResult = function(response) {
 
 };
 
-singleUploadForm.addEventListener('submit', function(event){
-    let files = singleFileUploadInput.files;
-    if(files.length === 0) {
-        singleFileUploadError.innerHTML = "Please select a file";
-        singleFileUploadError.style.display = "block";
-    }
-    uploadSingleFile(files[0]);
-    event.preventDefault();
-}, true);
-
+/**
+ * 화면 버튼 이벤트 바인딩
+ */
 const setButtonEvent = function() {
     // 생성 버튼 이벤트 바인딩
     let createButton = window.document.getElementById("create");
@@ -73,6 +91,9 @@ const setButtonEvent = function() {
     sendButton.onclick = send;
 }
 
+/**
+ * 전송 버튼 기능
+ */
 const send = function() {
     let _data = consentData.Regions[0].VisualTree.Items;
     let _keys = Object.keys(_data);
@@ -86,7 +107,7 @@ const send = function() {
             case "MRLabel":
                 break;
             default:
-                console.log(_cur);
+                //console.log(_cur);
                 break;
         }
     });
@@ -122,6 +143,9 @@ const send = function() {
 
 }
 
+/**
+ * 생성 버튼 기능
+ */
 const create = function() {
 
     let e = document.getElementById("fileName");
@@ -165,4 +189,4 @@ const create = function() {
 
 }
 
-export { create, setButtonEvent }
+export { setButtonEvent }
