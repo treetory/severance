@@ -16,7 +16,7 @@ body {
 }
 
 body:before {
-    height: 58%;
+    height: 50%;
     width: 100%;
     position: absolute;
     top: 0;

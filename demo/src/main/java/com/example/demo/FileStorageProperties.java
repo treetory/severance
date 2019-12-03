@@ -1,4 +1,4 @@
-package com.treetory.severance;
+package com.example.demo;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -10,7 +10,6 @@ public class FileStorageProperties {
 
     private String uploadDir;
     private String writeDir;
-    private String demoUrl;
 
     public String getUploadDir() {
         return this.uploadDir;
@@ -21,8 +20,5 @@ public class FileStorageProperties {
 
     public String getWriteDir() { return writeDir; }
     public void setWriteDir(String writeDir) { this.writeDir = writeDir; }
-
-    public String getDemoUrl() { return demoUrl; }
-    public void setDemoUrl(String demoUrl) { this.demoUrl = demoUrl; }
 
 }

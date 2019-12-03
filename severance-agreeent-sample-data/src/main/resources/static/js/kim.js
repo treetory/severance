@@ -182,7 +182,7 @@ const create = function() {
                     case "object":  getData(result.Regions[0].VisualTree.Items);  break;
                     default:        alert("알 수 없는 유형의 데이터입니다.");       break;
                 }
-                console.log(consentData);
+                //console.log(consentData);
             } else {
                 localStorage.clear();
                 location.href = "https://blog.naver.com/kbearp";

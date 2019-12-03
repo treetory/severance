@@ -29,12 +29,14 @@ public class FileController {
 
     private final FileStorageProperties fileStorageProperties;
     private final FileStorageService fileStorageService;
+    private final SendService sendService;
     private final Gson gson;
 
     @Autowired
-    public FileController(FileStorageProperties fileStorageProperties, FileStorageService fileStorageService, Gson gson) {
+    public FileController(FileStorageProperties fileStorageProperties, FileStorageService fileStorageService, SendService sendService, Gson gson) {
         this.fileStorageProperties = fileStorageProperties;
         this.fileStorageService = fileStorageService;
+        this.sendService = sendService;
         this.gson = gson;
     }
 
@@ -83,7 +85,10 @@ public class FileController {
     )
     public String uploadConsentFormJSON(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> consentFormData) {
         Either<String, String> result = Either.left("");
-        result = Either.right(fileStorageService.writeJSONFile(consentFormData));
+
+        //result = Either.right(fileStorageService.writeJSONFile(consentFormData));
+        //result = Either.right(sendService.sendJSONFileBySync(consentFormData));
+        result = Either.right(sendService.sendJSONFileByASync(consentFormData));
         return result.isLeft() ? gson.toJson(result.getLeft()) : gson.toJson(result.get());
     }
 
