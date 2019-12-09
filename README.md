@@ -47,7 +47,7 @@
 
 2. RestController 에 Mapping 된 request URL 도 딱 한개임.
 
-3. 상기 [html-agreement-viewer] 에서 선택한 값을 바탕으로 해당 값에 대응하는 파일명으로 되어있는 json 파일 읽은 후, json response 던져주는 방식으로 작성됨. -> 함수형 스타일을 약간 도입하기 위해 Either 를 이용하여 Exception 이 발생하면 left 의 에러메시지를 내려주고, 해당 파일을 찾아서 잘 파싱한다면 right 의 arrayList 객체를 내려주는 형식으로 코드를 수정하였음.
+3. 상기 [html-agreement-viewer] 에서 선택한 값을 바탕으로 해당 값에 대응하는 파일명으로 되어있는 json 파일 읽은 후, json response 던져주는 방식으로 작성됨. -> Either 를 이용하여 Exception 이 발생하면 left 의 에러메시지를 내려주고, 해당 파일을 찾아서 잘 파싱한다면 right 의 arrayList 객체를 내려주는 형식으로 코드를 수정하였음.
 
 4. 상기 [html-agreement-viewer] 에서 CORS 를 피하기 위해 nginx.conf에 proxy_pass 설정해 줄 것.
 
