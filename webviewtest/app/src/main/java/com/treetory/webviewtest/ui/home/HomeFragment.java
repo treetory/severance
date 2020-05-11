@@ -1,13 +1,16 @@
 package com.treetory.webviewtest.ui.home;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.JsResult;
+import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -18,7 +21,14 @@ import com.treetory.webviewtest.WebAppInterface;
 
 public class HomeFragment extends Fragment {
 
-    private static final String ENTRY_URL = String.format("https://%s", "dev1.lemonhc.com/mplus/poc.html");
+    private static final String TAG = "HomeFragment";
+
+    private static final String ENTRY_URL =
+            String.format("https://%s",
+                    "browser.letsee.io/sony_earphone/"
+                    //"intra.letsee.io:10001/api_test_sample/loadingscreen/"
+            );
+
     private WebView mWebView;
 
     public View onCreateView(/*@NonNull*/ LayoutInflater inflater,
@@ -32,12 +42,19 @@ public class HomeFragment extends Fragment {
 
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         webSettings.setAllowFileAccess(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setDatabaseEnabled(true);
         webSettings.setAppCacheEnabled(true);
         webSettings.setAppCachePath("/data/data/" + this.getActivity().getPackageName() + "/cache/");
+
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(false);
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webSettings.setDomStorageEnabled(true);
 
         // chrome://inspect 로 디버깅 하기 위함
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -86,6 +103,20 @@ public class HomeFragment extends Fragment {
                         .show();
                 return true;
             }
+
+            @Override
+            public void onPermissionRequest(final PermissionRequest request) {
+                Log.d(TAG, "onPermissionRequest");
+                getActivity().runOnUiThread(new Runnable() {
+                    @TargetApi(Build.VERSION_CODES.M)
+                    @Override
+                    public void run() {
+                        Log.d(TAG, String.format("%s -> GRANTED", request.getOrigin().toString()));
+                        request.grant(request.getResources());
+                    }
+                });
+            }
+
         });
 
         mWebView.loadUrl(ENTRY_URL);
