@@ -6,12 +6,13 @@ const login = function() {
     let uid = document.getElementById("userId");
     let pwd = document.getElementById("password");
 
-    let requestURL = "/login";
+    let requestURL = "http://192.168.1.166:3000/test";
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(e) {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 console.log(xhr.responseText);
+                /*
                 let result = JSON.parse(xhr.responseText);
                 console.log(result);
                 if (result.hasOwnProperty("token")) {
@@ -21,7 +22,7 @@ const login = function() {
                     alert(result);
                     localStorage.clear();
                 }
-
+                */
             }
         };
     };
@@ -31,6 +32,7 @@ const login = function() {
     xhr.open('POST', requestURL, true);
     xhr.setRequestHeader('Accept', "application/json;charset=UTF-8");
     xhr.setRequestHeader('Content-Type', "application/json;charset=UTF-8");
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.send(JSON.stringify({ "userId" : uid.value, "password" : pwd.value  }));
 
 }
