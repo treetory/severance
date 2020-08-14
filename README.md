@@ -41,7 +41,7 @@
 
 4. select box 선택 시, severance-agreeent-sample-data 서버 인스턴스가 살아있으면 httpRequest를 이용하여 sample data를 가져오고, 죽어있으면 (502) 스크립트 코드 내부에 선언된 전역변수를 sample data로 사용하여 렌더링 테스트를 진행한다. -> select box 의 옵션 값도 가져오기 위한 REST Controller 의 method 생성했다. select box 선택 시, 파싱하기 위해 대응되는 json 파일이 없으면 컨트롤러에서 반환한 error 메시지를 alert 창에 뿌려준다.
 
-# **severance-agreeent-sample-data** : xaml -> json 변환
+# **html-agreement-poc-final** : xaml -> json 변환
 
 1. Spring-Boot 로 아주 단순하게 작성했음
 
